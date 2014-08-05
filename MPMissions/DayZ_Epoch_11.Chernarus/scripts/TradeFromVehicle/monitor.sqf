@@ -19,7 +19,7 @@ if ((tfv_ACTION_MAGS == 1) && (canBuild)) then {    //Remove the action if playe
     tfv_ACTION_MAGS = 0;
 };
 
-waitUntil {!canBuild};
+while {!canBuild} do {
 _humanity = player getVariable ["humanity",0];
 _canTrade = false;
 
@@ -82,7 +82,7 @@ _canTrade = false;
 		    };
 		};
 	};
-	
+};	
     if !(typeOf cursorTarget in tfv_TRADERS) then {    //Check to see what the player is looking at and if it is a supported trader.
 		if (tfv_ACTION == 1) then {
 		    player removeAction tfv_ACTION_INDEX;

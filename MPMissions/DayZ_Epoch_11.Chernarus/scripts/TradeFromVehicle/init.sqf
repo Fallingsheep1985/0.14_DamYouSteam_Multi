@@ -1,4 +1,4 @@
-
+waitUntil {!isNil "dayz_animalCheck"};
 sleep 1;
 diag_log ["Trade from vehicle loaded!"];
 
@@ -42,7 +42,9 @@ tfv_TRADERS_ITEMS = [
 ["Dr_Hladik_EP1",["ItemAntibiotic" ,"ItemBandage" ,"ItemBloodbag" ,"ItemEpinephrine" ,"ItemHeatPack" ,"ItemMorphine" ,"ItemPainkiller" ,"HandChemBlue" ,"HandChemGreen" ,"HandChemRed" ,"FlareGreen_M203" ,"FlareWhite_M203" ,"HandRoadFlare" ,"SmokeShell" ,"SmokeShellGreen" ,"SmokeShellRed"],["magazines"],0],
 ["Doctor",["ItemAntibiotic" ,"ItemBandage" ,"ItemBloodbag" ,"ItemEpinephrine" ,"ItemHeatPack" ,"ItemMorphine" ,"ItemPainkiller" ,"HandChemBlue" ,"HandChemGreen" ,"HandChemRed" ,"FlareGreen_M203" ,"FlareWhite_M203" ,"HandRoadFlare" ,"SmokeShell" ,"SmokeShellGreen" ,"SmokeShellRed"],["magazines"],0],
 ["GUE_Woodlander2",["ItemKiloHemp" ,"ItemRadio" ,"Saiga12K" ,"m8_compact" ,"m8_sharpshooter" ,"m8_holo_sd" ,"m8_carbine" ,"M24_des_EP1" ,"VSS_vintorez" ,"SVD_des_EP1" ,"SVD" ,"M8_SAW" ,"MG36" ,"RPK_74" ,"M60A4_EP1_DZE" ,"m240_scoped_EP1_DZE" ,"M249_m145_EP1_DZE" ,"MG36_camo" ,"bizon" ,"M4A1_HWS_GL_SD_Camo" ,"KSVK_DZE" ,"20Rnd_9x39_SP5_VSS" ,"8Rnd_B_Beneli_74Slug" ,"20Rnd_762x51_SB_SCAR" ,"8Rnd_B_Beneli_Pellets" ,"8Rnd_B_Saiga12_74Slug" ,"8Rnd_B_Saiga12_Pellets" ,"20Rnd_B_765x17_Ball" ,"10Rnd_762x54_SVD" ,"5Rnd_762x51_M24" ,"30Rnd_556x45_Stanag" ,"20Rnd_762x51_FNFAL" ,"100Rnd_556x45_BetaCMag" ,"75Rnd_545x39_RPK" ,"64Rnd_9x19_Bizon" ,"5Rnd_127x108_KSVK" ,"HandGrenade_west" ,"PipeBomb" ,"1Rnd_HE_M203" ,"HandGrenade_east"],["magazines","weapons"],-5000]
-]; if (tfv_DEBUGGING) then { diag_log "tfv - Traders and their weapons loaded in!"; };
+]; 
+
+if (tfv_DEBUGGING) then { diag_log "tfv - Traders and their weapons loaded in!"; };
 
 /*    *******************************************************************************************************************************************   */
 /*    List of ALL weapons, regardless of trader, along with the prices.                                                                             */
@@ -320,14 +322,38 @@ tfv_TRADERS_PRICES = [
 ["VSS_vintorez",400],                          
 ["Winchester1866",10],                         
 ["WoodenArrow",1]
-]; if (tfv_DEBUGGING) then { { diag_log format ["tfv - Price loaded - %1",_x]; } forEach tfv_TRADERS_PRICES; };
+]; 
+
+if (tfv_DEBUGGING) then { { diag_log format ["tfv - Price loaded - %1",_x]; } forEach tfv_TRADERS_PRICES; };
 
 /*    *******************************************************************************************************************************************   */
 /*    Anything below this line was not intended to be modified.                                                                                     */
 /*    *******************************************************************************************************************************************   */
 
-tfv_TRADERS = [];
+tfv_TRADERS = [
+"RU_Functionary1",
+"RU_Citizen3",
+"Rocker4",
+"Rita_Ensler_EP1",
+"CIV_EuroMan01_EP1",
+"CIV_EuroMan02_EP1",
+"TK_GUE_Soldier_5_EP1",
+"GUE_Soldier_MG",
+"Woodlander1",
+"RU_WorkWoman1",
+"Dr_Annie_Baker_EP1",
+"RU_Citizen4",
+"RU_WorkWoman5",
+"RU_Citizen1",
+"TK_CIV_Takistani04_EP1",
+"Pilot_EP1",
+"Woodlander3",
+"Dr_Hladik_EP1",
+"Doctor",
+"GUE_Woodlander2"
+];
 { tfv_TRADERS set [(count tfv_TRADERS),(_x select 0)]; } forEach tfv_TRADERS_ITEMS;
+
 tfv_TRADERS_TYPES = [];
 { tfv_TRADERS_TYPES set [(count tfv_TRADERS_TYPES),(_x select 2)]; } forEach tfv_TRADERS_ITEMS;
 if (tfv_DEBUGGING) then { { diag_log format ["tfv - Trader loaded - %1",_x]; } forEach tfv_TRADERS; };
