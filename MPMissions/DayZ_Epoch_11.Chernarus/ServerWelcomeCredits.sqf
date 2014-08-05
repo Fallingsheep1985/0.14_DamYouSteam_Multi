@@ -6,7 +6,7 @@ _onScreenTime = 5; //how long one role should stay on screen. Use value from 0 t
 waitUntil {!isNil "dayz_animalCheck"};
 sleep 30; //Wait in seconds before the credits start after player IS ingame
 _role1 = "Welcome to";
-_role1names = ["Sheeps Epoch repack","0.13 - Multi Madness"];
+_role1names = ["Sheeps Epoch repack","0.14 - Dam You Steam"];
 _role2 = "Admins";
 _role2names = ["Falligsheep", "Zombiesheep", "Crazy Sheep"];
 _role3 = "RULES/HELP";

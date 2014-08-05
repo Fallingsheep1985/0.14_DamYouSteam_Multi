@@ -39,7 +39,7 @@
 5 "isServer"
 5 "isDedicated"
 5 "cutText"
-5 "publicVariable"
+5 "publicVariable" !"admin_Log"
 5 "code"
 5 "onPlayer"
 5 "select"
