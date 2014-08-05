@@ -47,11 +47,6 @@ if (_inVehicle) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_
 if (_onLadder) exitWith {DZE_ActionInProgress = false; cutText [localize "str_player_21", "PLAIN DOWN"];};
 if (player getVariable["combattimeout", 0] >= time) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_43"), "PLAIN DOWN"];};
 
-_playerUID = getPlayerUID player;
-_found=[_playerUID,"AX"] call KRON_StrInStr;
-if (_found) then {
-   _playerUID=[_playerUID] call KRON_convertPlayerUID;
-};
 _item =	_this;
 
 // Need Near Requirements
@@ -168,8 +163,7 @@ if(_IsNearPlot == 0) then {
 	// diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
 
 	// check if friendly to owner
-	//if(dayz_characterID == _ownerID) then {  //Keep ownership
-	if(_playerUID == _ownerID) then {
+	if(dayz_characterID == _ownerID) then {  //Keep ownership
 		// owner can build anything within his plot except other plots
 		if(!_isPole) then {
 			_canBuildOnPlot = true;
@@ -598,15 +592,14 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 
 
 				} else {
-					_object setVariable ["CharacterID",_playerUID,true];
+					_object setVariable ["CharacterID",dayz_characterID,true];
 
 					// fire?
 					if(_object isKindOf "Land_Fire_DZ") then {
 						_object spawn player_fireMonitor;
 					} else {
 
-						//PVDZE_obj_Publish = [dayz_characterID,_object,[_dir,_location],_classname];
-						PVDZE_obj_Publish = [_playerUID,_object,[_dir,_location],_classname];
+						PVDZE_obj_Publish = [dayz_characterID,_object,[_dir,_location],_classname];
 						publicVariableServer "PVDZE_obj_Publish";
 					};
 				};

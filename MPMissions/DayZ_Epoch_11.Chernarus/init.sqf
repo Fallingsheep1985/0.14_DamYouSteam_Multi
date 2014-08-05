@@ -273,7 +273,7 @@ if(ZombieTruckScript)then{
 //Zombie Truck
 call compile preprocessFileLineNumbers "scripts\zombietruck\init.sqf";
 };
-nul= execVM "scripts\KRON_Strings.sqf";
+
 espawn = compile preprocessFileLineNumbers "scripts\spawn\spawn.sqf";
 waitUntil {!isNil "PVDZE_plr_LoginRecord"};
 if ((!isDedicated) && (dayzPlayerLogin2 select 2)) then {call espawn;};

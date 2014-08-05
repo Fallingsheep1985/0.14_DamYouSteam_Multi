@@ -42,8 +42,6 @@ local_lockUnlock = compile preprocessFileLineNumbers "scripts\Towing\local_lockU
 	add_UIDCode  						= compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\add_UIDCode.sqf";
 	remove_UIDCode  					= compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\remove_UIDCode.sqf";
 
-fnc_usec_damageActions = compile preprocessFileLineNumbers "fixes\fn_damageActions.sqf";
-player_updateGui = compile preprocessFileLineNumbers "fixes\player_updateGui.sqf";
 //Snap Build
 
 if (!isDedicated) then {

@@ -14,16 +14,10 @@ _obj = _this select 3;
 
 _activatingPlayer = player;
 
-_playerUID = getPlayerUID _activatingPlayer;
-_found=[_playerUID,"AX"] call KRON_StrInStr;
-if (_found) then {
-   _playerUID=[_playerUID] call KRON_convertPlayerUID;
-};
 
 _objOwnerID = _obj getVariable["CharacterID","0"];
 
-//_isOwnerOfObj = (_objOwnerID == dayz_characterID);
-_isOwnerOfObj = (_objOwnerID == _playerUID);
+_isOwnerOfObj = (_objOwnerID == dayz_characterID);
 
 if (_obj in DZE_DoorsLocked) exitWith { DZE_ActionInProgress = false; cutText [(localize "STR_EPOCH_ACTIONS_20"), "PLAIN DOWN"];};
 if(_obj getVariable ["GeneratorRunning", false]) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_89"), "PLAIN DOWN"];};
@@ -67,8 +61,7 @@ if(_IsNearPlot >= 1) then {
 	_ownerID = _nearestPole getVariable["CharacterID","0"];
 
 	// check if friendly to owner
-	//if(dayz_characterID != _ownerID) then {
-	if(_playerUID != _ownerID) then {
+	if(dayz_characterID != _ownerID) then {
 
 		_friendlies		= player getVariable ["friendlyTo",[]];
 		// check if friendly to owner
