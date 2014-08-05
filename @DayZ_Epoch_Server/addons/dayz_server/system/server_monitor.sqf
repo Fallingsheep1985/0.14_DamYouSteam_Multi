@@ -7,10 +7,6 @@ _hiveLoaded = false;
 
 waitUntil{initialized}; //means all the functions are now defined
 
-//####----####----####---- Base Building 1.3 Start ----####----####----####
-call build_baseBuilding_arrays; // build BB 1.3 arrays
-//####----####----####---- Base Building 1.3 End ----####----####----####
-
 
 diag_log "HIVE: Starting";
 
@@ -168,89 +164,6 @@ if (isServer && isNil "sm_done") then {
 			_object setposATL _pos;
 			_object setDamage _damage;
 			
-			//####----####----####---- Base Building 1.3 Start ----####----####----####
-				//Check to make sure all current flags match the set flag type, if not then change them
-				if ((typeOf(_object) in BBAllFlagTypes) && (typeOf(_object) != BBTypeOfFlag)) then {
-				deleteVehicle _object;
-				_object = createVehicle [BBTypeOfFlag, _pos, [], 0, "CAN_COLLIDE"];
-				_object setVariable ["CharacterID", _ownerID, true];
-				};
-				
-				//Check to make sure all current shield generators match the set shield generator type, if not then change them
-				if ((typeOf(_object) in BBAllZShieldTypes) && (typeOf(_object) != BBTypeOfZShield)) then {
-				deleteVehicle _object;
-				_object = createVehicle [BBTypeOfZShield, _pos, [], 0, "CAN_COLLIDE"];
-				_object setVariable ["CharacterID", _ownerID, true];
-				};
-				
-				// Give objects all custom UID
-				if (typeOf(_object) in allbuildables_class) then {
-				_object setVariable ["AuthorizedUID", _intentory, true]; //Sets the AuthorizedUID for build objects
-				_object setVariable ["ObjectUID", ((_intentory select 0) select 0), true]; //Sets Object UID using array value
-				};
-
-				//Handle Traps (Graves)
-				if (typeOf(_object) == "Grave") then {
-					_object setVariable ["isBomb", 1, true];//this will be known as a bomb instead of checking with classnames in player_bomb
-					_object setpos [(getposATL _object select 0),(getposATL _object select 1), -0.12];
-					_object addEventHandler ["HandleDamage", {false}];
-				};
-				
-				//Restore extendable objects to whatever their position is supposed to be
-				if (typeOf(_object) in allExtendables && typeOf(_object) != "Grave") then {
-					_object setposATL [(getposATL _object select 0),(getposATL _object select 1), (getposATL _object select 2)];
-				};
-				
-				//Restore non extendable objects and make sure they follow the land contours
-				if (typeOf(_object) in allbuildables_class) then {
-					_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
-				};
-				//Set Variable
-				_codePanels = ["Infostand_2_EP1", "Fence_corrugated_plate", BBTypeOfFlag];
-				if (typeOf(_object) in _codePanels && (typeOf(_object) != "Infostand_1_EP1")) then {
-					_object addEventHandler ["HandleDamage", {false}];
-				};
-				
-				/*******************************************This Section Handles Objects Which Move Excessively During the Build Process***********************************************/
-				/*******************************If added build objects move excessively, you can add a condition for them here and adjust as needed!***********************************/
-				if (typeOf(_object) == "Land_sara_hasic_zbroj") then {
-					_object setPosATL [((getPosATL _object select 0)+5.5),((getPosATL _object select 1)-1),(getPosATL _object select 2)];
-				};
-				if (typeOf(_object) == "Fence_Ind_long") then {
-					_object setPosATL [((getPosATL _object select 0)-3.5),((getPosATL _object select 1)-0),(getPosATL _object select 2)];
-				};
-				if (typeOf(_object) == "Fort_RazorWire" || typeOf(_object) == "Land_Shed_wooden") then {
-					_object setPosATL [((getPosATL _object select 0)-1.5),((getPosATL _object select 1)-0.5),(getPosATL _object select 2)];
-				};
-				if (typeOf(_object) == "Land_vez") then {
-					_object setPosATL [((getPosATL _object select 0)-3.5),((getPosATL _object select 1)+1.5),(getPosATL _object select 2)];
-				};
-				if (typeOf(_object) == "Land_Misc_Scaffolding") then {
-					_object setPosATL [((getPosATL _object select 0)-0.5),((getPosATL _object select 1)+3),(getPosATL _object select 2)];
-				};
-				/**************************************************************End of Excessive Movement Section***********************************************************************/
-
-				// Set whether or not buildable is destructable
-				if (typeOf(_object) in allbuildables_class) then {
-					diag_log ("SERVER: in allbuildables_class:" + typeOf(_object) + "!");
-					for "_i" from 0 to ((count allbuildables) - 1) do
-					{
-						_classname = (allbuildables select _i) select _i - _i + 1;
-						_result = [_classname,typeOf(_object)] call BIS_fnc_areEqual;
-						if (_result) exitWith {
-							_requirements = (allbuildables select _i) select _i - _i + 2;
-							_isDestructable = _requirements select 13;
-							diag_log ("SERVER: " + typeOf(_object) + " _isDestructable = " + str(_isDestructable));
-							if (!_isDestructable) then {
-								diag_log("Spawned: " + typeOf(_object) + " Handle Damage False");
-								_object addEventHandler ["HandleDamage", {false}];
-							};
-						};
-					};
-				};
-				//####----####----####---- Base Building 1.3 End ----####----####----####
-
-			
 			if ((typeOf _object) in dayz_allowedObjects) then {
 				if (DZE_GodModeBase) then {
 					_object addEventHandler ["HandleDamage", {false}];
@@ -264,7 +177,7 @@ if (isServer && isNil "sm_done") then {
 				
 			};
 
-			if ((count _intentory > 0) && !(typeOf(_object) in allbuildables_class) && !(typeOf(_object) in BBAllFlagTypes) && !(typeOf(_object) in BBAllZShieldTypes)) then {
+			if ((count _intentory > 0) then {
 				if (_type in DZE_LockedStorage) then {
 					// Fill variables with loot
 					_object setVariable ["WeaponCargo", (_intentory select 0),true];
