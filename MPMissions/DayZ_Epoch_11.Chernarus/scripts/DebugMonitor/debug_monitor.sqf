@@ -9,10 +9,20 @@ fnc_debug = {
 		_kills = 		player getVariable["zombieKills",0];
 		_killsH = 		player getVariable["humanKills",0];
 		_killsB = 		player getVariable["banditKills",0];
+		_pic = (gettext (configFile >> "CfgVehicles" >> (typeof vehicle player) >> "picture"));
+			if (player == vehicle player) then 
+			{
+				_pic = (gettext (configFile >> "cfgWeapons" >> (currentWeapon player) >> "picture"));
+			}
+			else
+			{
+				_pic = (gettext (configFile >> "CfgVehicles" >> (typeof vehicle player) >> "picture"));
+			};
 		_info_player =
 			"
 			<t size='1' font='Bitstream' align='Center' >%1</t><br/>
 			<t size='1' font='Bitstream' align='center' color='#5882FA'>Survived %11 Days</t><br/>
+			<img size='5.5' image='%4'/><br/>
 			<t size='1' font='Bitstream' align='left' color='#CC0000'>Blood: </t><t size='1' font='Bitstream' align='right'>%10</t><br/>
 			<t size='1' font='Bitstream' align='left' color='#0066CC'>Humanity: </t><t size='1' font='Bitstream' align='right'>%6</t><br/>
 			<br/>
