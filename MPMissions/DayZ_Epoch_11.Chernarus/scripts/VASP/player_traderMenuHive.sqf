@@ -128,7 +128,7 @@ TraderDialogLoadItemList = {
 
 		// Action file to use for trade
 		_afile = _x select 7;
-		_File = "\z\addons\dayz_code\actions\" + _afile + ".sqf";
+		_File = "scripts\fasttrade\" + _afile + ".sqf";
 			
 		_count = 0;
 		if(_type == "CfgVehicles") then {
@@ -241,8 +241,9 @@ TraderDialogShowPrices = {
 			"];
 			
 			/* If Infistar is running we override his Debug-Monitor */
-			if (ServerRunsInfistar) then {
-				debugMonitorX = false;
+			if (debugMonitor) then {
+				debugMonitor = false;
+				hintSilent "";
 			};
 			
 			/* Show the Preview-Hint to the Player */
@@ -263,10 +264,10 @@ TraderDialogShowPrices = {
 				/* Wait until the Tradermenu is closes either by Preview-Hotkey or by closing the Traderdialog normal */
 				waitUntil {sleep 0.1;!dialog};
 				
-				/* If Infistar is running we remove the override of his Debug-Monitor */
-				if (ServerRunsInfistar) then {
-					debugMonitorX = false;
-				};
+					if (debugMonitor) then {
+						debugMonitor = false;
+						hintSilent "";
+					};
 				
 				/* Remove the Preview-Hotkey */
 				(findDisplay 46) displayRemoveEventHandler ["KeyDown", VehiclePreviewHotkey];
@@ -320,10 +321,10 @@ TraderDialogShowPrices = {
 			"];
 
 			/* If Infistar is running we override his Debug-Monitor */
-			if (ServerRunsInfistar) then {
-				debugMonitorX = false;
-			};
-
+				if (debugMonitor) then {
+					debugMonitor = false;
+					hintSilent "";
+				};
 			/* Show the Preview-Hint to the Player */
 			hint parseText format ["
 				<t size='1.3'font='Bitstream'align='center'color='#00FF00'>! PREVIEW !</t><br/>
@@ -343,9 +344,10 @@ TraderDialogShowPrices = {
 				waitUntil {sleep 0.1;!dialog};
 				
 				/* If Infistar is running we remove the override of his Debug-Monitor */
-				if (ServerRunsInfistar) then {
-					debugMonitorX = false;
-				};
+					if (debugMonitor) then {
+						debugMonitor = false;
+						hintSilent "";
+					};
 				
 				/* Remove the Preview-Hotkey */
 				(findDisplay 46) displayRemoveEventHandler ["KeyDown", SkinPreviewHotkey];

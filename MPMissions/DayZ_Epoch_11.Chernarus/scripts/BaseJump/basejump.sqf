@@ -1,5 +1,9 @@
 private["_vehicle","_action","_pos","_meters"];
-
+systemChat ("Base Jump will load in 2 minutes.");
+sleep 60;
+systemChat ("Base Jump will load in 1 minutes");  
+sleep 60;
+systemChat ("Base Jump loaded.");  
 _meters = 40;
 _action = -1;
 

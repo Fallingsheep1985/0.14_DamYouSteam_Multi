@@ -1,4 +1,4 @@
-server_name = "Sheeps Epoch Repack - 0.13";
+server_name = "0.14 - Dam you Steam";
 
 
 execVM "admintools\AdminList.sqf";
@@ -264,14 +264,17 @@ if(ElevatorScript)then{
 		["scripts\elevator"] execVM "scripts\elevator\elevator_init.sqf";
 	};
 };
+if(TradeFromVehicleScript)then{
+		[] execVM "scripts\TradeFromVehicle\init.sqf";
+};
+//Weapon Mods
+call compile preprocessFileLineNumbers "scripts\wmod\init.sqf";
+if(ZombieTruckScript)then{
+//Zombie Truck
+call compile preprocessFileLineNumbers "scripts\zombietruck\init.sqf";
+};
+nul= execVM "scripts\KRON_Strings.sqf";
 espawn = compile preprocessFileLineNumbers "scripts\spawn\spawn.sqf";
 waitUntil {!isNil "PVDZE_plr_LoginRecord"};
 if ((!isDedicated) && (dayzPlayerLogin2 select 2)) then {call espawn;};
 
-//Weapon Mods
-call compile preprocessFileLineNumbers "scripts\wmod\init.sqf";
-
-//Zombie Truck
-call compile preprocessFileLineNumbers "scripts\zombietruck\init.sqf";
-
-nul= execVM "scripts\KRON_Strings.sqf";

@@ -96,3 +96,7 @@ SirenScript = true;
 basebuildScript = true;
 //Elevator
 ElevatorScript = true;
+//Zombie Trucks
+ZombieTruckScript = true;
+//trade from vehicle
+TradeFromVehicleScript = true;
