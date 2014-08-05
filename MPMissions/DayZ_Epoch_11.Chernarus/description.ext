@@ -14,12 +14,6 @@ class RscIGUIShortcutButton;
 //Custom Loot
 #include "scripts\CustomLoot\CfgBuildingLoot.hpp"
 
-//####----####---- Base Building Start ----####----####
-#include "defines.hpp"
-#include "build_recipe_dialog.hpp"
-#include "build_recipe_list_dialog.hpp"
-//####----####---- Base Building End ----####----####
-
 //Heli Lift
 #include "scripts\HeliLift\BTC_Hud.h"
 
