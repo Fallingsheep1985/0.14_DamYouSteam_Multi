@@ -21,8 +21,8 @@ fnc_debug = {
 			};
 		_info_player =
 			"
-			<t size='1' font='Bitstream' align='Center' >%1</t><br/>
 			<t size='1' font='Bitstream' align='center' color='#5882FA'>Survived %11 Days</t><br/>
+			<t size='1' font='Bitstream' align='Center' >%1</t><br/>
 			<img size='5.5' image='%4'/><br/>
 			<t size='1' font='Bitstream' align='left' color='#0066CC'>Speed: </t><t size='1' font='Bitstream' align='right'>%12KPH</t><br/>
 			<t size='1' font='Bitstream' align='left' color='#CC0000'>Blood: </t><t size='1' font='Bitstream' align='right'>%10</t><br/>
