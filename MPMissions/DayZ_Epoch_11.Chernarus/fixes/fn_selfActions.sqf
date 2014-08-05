@@ -436,13 +436,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 
 	_isMan = _cursorTarget isKindOf "Man";
 	_traderType = _typeOfCursorTarget;
-	_ownerID = _cursorTarget getVariable ["CharacterID","0"];
-	
-	_playerUID = getPlayerUID player;
-	_found=[_playerUID,"AX"] call KRON_StrInStr;
-	if (_found) then {
-	   _playerUID=[_playerUID] call KRON_convertPlayerUID;
-	};
+	_ownerID = _cursorTarget getVariable ["CharacterID","0"];	
 	
 	_isAnimal = _cursorTarget isKindOf "Animal";
 	_isDog =  (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
@@ -507,14 +501,13 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		};
 		
 		//Allow owners to delete modulars
-               //if(_isModular && (dayz_characterID == _ownerID)) then {
-			   if(_isModular and (_playerUID == _ownerID)) then {
+			   if(_isModular and (dayz_characterID == _ownerID)) then {
                         if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
                                 _player_deleteBuild = true;
                         };
                 };
 		//Allow owners to delete modular doors without locks
-				if(_isModularDoor && (_playerUID == _ownerID)) then {
+				if(_isModularDoor && (dayz_characterID == _ownerID)) then {
                         if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
                                 _player_deleteBuild = true;
                         };		
@@ -956,8 +949,7 @@ if(BuryHumanScript)then{
 	
 	//Packing my tent
 	if(_isTent && (player distance _cursorTarget < 3)) then {
-		//if (_ownerID == dayz_characterID) then {
-		if (_ownerID == _playerUID) then {
+		if (_ownerID == dayz_characterID) then {
 			if (s_player_packtent < 0) then {
 				s_player_packtent = player addAction [localize "str_actions_self_07", "\z\addons\dayz_code\actions\tent_pack.sqf",_cursorTarget, 0, false, true, "",""];
 			};
@@ -1181,7 +1173,7 @@ if(TowingScript)then{
 
 if(TentHealScript)then{
     //Sleep
-	if(_isTent and _ownerID ==  _playerUI) then {
+	if(_isTent and _ownerID ==  dayz_characterID) then {
 		if ((s_player_sleep < 0) and (player distance _cursorTarget < 3)) then {
 			s_player_sleep = player addAction [localize "str_actions_self_sleep", "scripts\player_sleep.sqf",_cursorTarget, 0, false, true, "",""];
 		};
@@ -1191,7 +1183,7 @@ if(TentHealScript)then{
 	};
 }else{
     //Sleep
-	if(_isTent && _ownerID == _playerUID) then {
+	if(_isTent && _ownerID == dayz_characterID) then {
 		if ((s_player_sleep < 0) && (player distance _cursorTarget < 3)) then {
 			s_player_sleep = player addAction [localize "str_actions_self_sleep", "\z\addons\dayz_code\actions\player_sleep.sqf",_cursorTarget, 0, false, true, "",""];
 		};
