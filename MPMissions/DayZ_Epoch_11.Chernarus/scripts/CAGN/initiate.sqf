@@ -1,3 +1,3 @@
-[] execVM 'CAGN\agn_SafeZoneCommander.sqf';
-[] execVM "CAGN\safezonevehicle.sqf";
-[] execVM "CAGN\SafeZonesAI.sqf";
+[] execVM 'scripts\CAGN\agn_SafeZoneCommander.sqf';
+[] execVM "scripts\CAGN\safezonevehicle.sqf";
+[] execVM "scripts\CAGN\SafeZonesAI.sqf";

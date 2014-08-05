@@ -1219,7 +1219,7 @@ if(TentHealScript)then{
 			};
 		};
     };
-
+	
 	// All Traders
 	if (_isMan && !_isPZombie && _traderType in serverTraders) then {
 		

@@ -267,7 +267,7 @@ while {true} do {
 		if (AGN_safeZoneAntispam )then{
 			//check if player has entered safezone recently
 			if (AGN_enteredSafezone) then{
-				[] execVM "CAGN\agn_timer.sqf";
+				[] execVM "scripts\CAGN\agn_timer.sqf";
 			};
 		};
 	};
