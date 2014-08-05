@@ -1,0 +1,9 @@
+LANGUAGE,English
+
+
+UNINSTALL_APP_NAME,BattlEye
+UNINSTALL_QUESTION,Uninstall BattlEye
+UNINSTALL_FAIL_NOTFOUND,File not found:\n%s
+UNINSTALL_CANNOT_COPYFILE,Unable to copy file:\n%s
+UNINSTALL_END,BattlEye was successfully uninstalled.
+UNINSTALL_END_OK,BattlEye was successfully uninstalled.
