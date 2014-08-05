@@ -173,10 +173,7 @@ if(EVRBlowoutScript)then{
 };
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
-if(adminScript)then{
-	// Epoch Admin Tools
-	[] execVM "admintools\Activate.sqf";
-};
+
 if(WaterMarkScript)then{
 	//DayZ Watermark
 	if (!isNil "server_name") then {
@@ -278,3 +275,9 @@ espawn = compile preprocessFileLineNumbers "scripts\spawn\spawn.sqf";
 waitUntil {!isNil "PVDZE_plr_LoginRecord"};
 if ((!isDedicated) && (dayzPlayerLogin2 select 2)) then {call espawn;};
 
+//wait before admin script is active
+sleep 30;
+if(adminScript)then{
+	// Epoch Admin Tools
+	[] execVM "admintools\Activate.sqf";
+};
