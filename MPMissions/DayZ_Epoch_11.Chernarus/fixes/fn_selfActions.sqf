@@ -23,9 +23,9 @@ if(NOSScript)then{
 			if (isnil("NITRO_Cond")) then {NITRO_Cond = false;};
 			if (s_player_nitrobooston <0) then {	
 				if (NITRO_Cond) then {
-					s_player_nitrobooston = _vehicle addAction [("<t color=""#39C1F3"">" + ("Nitro Off") + "</t>"),"scripts\nitro\nitro.sqf", [_vehicle], 999, false,true,"","driver _target == _this"]; 
+					s_player_nitrobooston = _vehicle addAction [("<t color=""#39C1F3"">" + ("Nitro Off") + "</t>"),"scripts\NOS\nitro.sqf", [_vehicle], 999, false,true,"","driver _target == _this"]; 
 				} else {
-					s_player_nitrobooston = _vehicle addAction [("<t color=""#39C1F3"">" + ("Nitro On") + "</t>"),"scripts\nitro\nitro.sqf", [_vehicle], 999, false,true,"","driver _target == _this"]; 
+					s_player_nitrobooston = _vehicle addAction [("<t color=""#39C1F3"">" + ("Nitro On") + "</t>"),"scripts\NOS\nitro.sqf", [_vehicle], 999, false,true,"","driver _target == _this"]; 
 				};	
 			};
 		} else {
@@ -958,7 +958,7 @@ if(NOSScript)then{
 	_isNOSinstalled = _cursorTarget getVariable ["nitroinstalled", 0];
 	if (_isaCar and !locked _cursorTarget and _hasNOSitems and _isNOSinstalled == 0) then {
 		if (s_player_nitroInstall < 0) then {
-			s_player_nitroInstall = player addAction [("<t color=""#39C1F3"">" + ("Install NOS boost") +"</t>"), "scripts\nitro\nitroinstall.sqf",_cursorTarget, 999, true, false, "",""];
+			s_player_nitroInstall = player addAction [("<t color=""#39C1F3"">" + ("Install NOS boost") +"</t>"), "scripts\NOS\nitroinstall.sqf",_cursorTarget, 999, true, false, "",""];
 		};
 	} else {
 		player removeAction s_player_nitroInstall;
