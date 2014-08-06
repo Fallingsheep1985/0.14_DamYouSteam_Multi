@@ -349,8 +349,6 @@ if (isServer && isNil "sm_done") then {
 	nul = [7, 5, 700, 0, 0.99, 'center', 4000, true, false, false, 5, 1]spawn server_spawnAN2CrashSite;
 	//AN2 Carpackages
 	nul = [6, 3, (50*60), (15*60), 0.75, 'center', 8000, true, false, 2, 3, 1] spawn server_spawnAN2;
-	//Air Raid
-	nul = [] spawn server_airRaid;
 	if (isDedicated) then {
 		// Epoch Events
 		_id = [] spawn server_spawnEvents;
