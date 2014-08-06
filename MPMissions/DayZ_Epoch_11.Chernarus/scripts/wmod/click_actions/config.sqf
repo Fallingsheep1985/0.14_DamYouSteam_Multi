@@ -44,12 +44,12 @@ DZE_CLICK_ACTIONS = [
 	["Binocular","Set Fog - 1500","[] execVM 'scripts\BinocularFog\1500.sqf';","true"],
 	["Binocular","Set Fog - 1750","[] execVM 'scripts\BinocularFog\1750.sqf';","true"],
 	["Binocular","Set Fog - 2000","[] execVM 'scripts\BinocularFog\2000.sqf';","true"],
-	["ItemAmethyst","Start Crafting!","[] execVM 'scripts\Buildables\Amethyst.sqf';","true"],
-	["ItemCitrine","Start Crafting!","[] execVM 'scripts\Buildables\Citrine.sqf';","true"],
-	["ItemEmerald","Start Crafting!","[] execVM 'scripts\Buildables\Emerald.sqf';","true"],
-	["ItemObsidian","Start Crafting!","[] execVM 'scripts\Buildables\Obsidian.sqf';","true"],
-	["ItemRuby","Start Crafting!","[] execVM 'scripts\Buildables\Ruby.sqf';","true"],
-	["ItemSapphire","Start Crafting!","[] execVM 'scripts\Buildables\Sapphire.sqf';","true"],
-	["ItemTopaz","Start Crafting!","[] execVM 'scripts\Buildables\Topaz.sqf';","true"],
-	["ItemLightbulb","Start Crafting!","[] execVM 'scripts\Buildables\Lights.sqf';","true"]
+	["ItemAmethyst","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Amethyst.sqf';","true"],
+	["ItemCitrine","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Citrine.sqf';","true"],
+	["ItemEmerald","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Emerald.sqf';","true"],
+	["ItemObsidian","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Obsidian.sqf';","true"],
+	["ItemRuby","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Ruby.sqf';","true"],
+	["ItemSapphire","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Sapphire.sqf';","true"],
+	["ItemTopaz","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Topaz.sqf';","true"],
+	["ItemLightbulb","Start Crafting!","closeDialog 0;createDialog ""Advanced_Crafting"";[] execVM 'scripts\Buildables\Lights.sqf';","true"]
 ];                                               
