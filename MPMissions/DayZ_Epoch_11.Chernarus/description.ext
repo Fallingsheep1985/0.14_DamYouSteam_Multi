@@ -575,8 +575,6 @@ class CfgSounds
 #include "scripts\spawn\spawn.hpp"
 //Snap Build
 #include "scripts\snap_pro\snappoints.hpp"
-//Emerald interior Design
-#include "scripts\interior\dialogs.hpp"
 //multi character select
 #include "RscDisplayCharacterSelect.hpp"
 //Config based traders
