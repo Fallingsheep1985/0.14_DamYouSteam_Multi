@@ -238,7 +238,7 @@ while {true} do {
 			//create loot
 			_index = floor(random _cntItems);
 			//zero divisor fix
-			if((_index)||(_index == 0))then{
+			if((_index < 1)||(_index == 0))then{
 				_index = _index + 1;
 			};
 			//undefined var fix

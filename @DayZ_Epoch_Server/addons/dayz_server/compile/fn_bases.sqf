@@ -37,11 +37,15 @@ private ["_clutter","_index","_lootMaxRadius2","_itemType","_position","_item","
 			for "_x" from (round(random _randomLoot) + _guaranteedLoot) to 1 step -1  do {
 				//create loot
 				_index = floor(random _cntWeights);
-//Zero divisor fix
+				//Zero divisor fix
 				if((_index < 0)||(_index == 0))then{
 					_index = _index + 1;
 				};
 				_index = _weights select _index;
+				//Zero divisor fix
+				if((_index < 0)||(_index == 0))then{
+					_index = _index + 1;
+				};
 				_itemType = [];
 				_itemType = _itemTypes select _index;
 
