@@ -6,13 +6,13 @@ _onScreenTime = 5; //how long one role should stay on screen. Use value from 0 t
 waitUntil {!isNil "dayz_animalCheck"};
 sleep 30; //Wait in seconds before the credits start after player IS ingame
 _role1 = "Welcome to";
-_role1names = ["Sheeps Epoch repack","0.14 Dam you Steam"];
+_role1names = ["Sheeps Epoch repack","0.14 - Dam You Steam"];
 _role2 = "Admins";
 _role2names = ["Falligsheep", "Zombiesheep", "Crazy Sheep"];
 _role3 = "RULES/HELP";
 _role3names = ["press INSERT to open help/rules","press J to open your journal","press F10 to toggle debugmonitor"];
 _role4 = "Server Mods - #1"; 
-_role4names = ["Base Building 1.3","Admin Tools","Burn Tents","Debug Monitor","Take clothes"];
+_role4names = ["Advanced Alchemy Building","Admin Tools","Burn Tents","Debug Monitor","Take clothes"];
 _role5 = "Server Mods - #2";
 _role5names = ["Tent healing", "Zombie Bait", "Zombie Bomb","Suicide","DZAI"];
 _role6 = "Server Mods - #3";
@@ -24,7 +24,7 @@ _role8names = ["Bury Body","Regen Blood","Taunt Zombies","Snow","Ground Fog","An
 _role9 = "Server Mods - #6";
 _role9names = ["Street Lights","House Lights","Tower Lights","Animated AN2 crashes","AN2 carepackage drops"];
 _role10 = "Server Mods - #7";
-_role10names = ["Air Raid","Welcome Credits","Custom loading Screen","Custom Loot","Enhanced Spawn selection"];
+_role10names = ["Fast trade","Welcome Credits","Custom loading Screen","Custom Loot","Enhanced Spawn selection"];
 _role11 = "Server Mods - #8";
 _role11names = ["EVR Blowout","Mv22 Folding wings","Animated SUV Turrent","Gems at traders","Arrest Player"];
 _role12 = "Server Mods - #9";
