@@ -232,7 +232,7 @@ if ((_dikCode == 0xDB) or (_dikCode == 0xDC)) then {
 if (tagname) then {tagname = false;} else {tagname = true;};
 };
 
-if (_dikCode == 0x9D) then {
+if (_dikCode == 0x43) then {
 if (dialog) then {closeDialog 0;groupManagementActive = false;} else {createGearDialog [player, "RscDisplayGear"];[] execVM "scripts\dzgm\loadGroupManagement.sqf";};
 };
 };

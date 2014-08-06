@@ -14,4 +14,4 @@ tagname = true;
 if (isNil "dzgm_init") then {call compile preprocessFileLineNumbers "scripts\dzgm\icons.sqf";};
 sleep 1;
 [] spawn dzgm_init;
-systemChat "Press right ctrl to open group management";
+systemChat "Press F9 to open group management";
