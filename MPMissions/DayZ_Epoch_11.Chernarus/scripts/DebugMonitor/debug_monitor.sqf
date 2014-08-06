@@ -10,15 +10,13 @@ fnc_debug = {
 		_killsH = 		player getVariable["humanKills",0];
 		_killsB = 		player getVariable["banditKills",0];
 		_My_speed = speed (vehicle player);
-		_pic = (gettext (configFile >> "CfgVehicles" >> (typeof vehicle player) >> "picture"));
-			if (player == vehicle player) then 
-			{
-				_pic = (gettext (configFile >> "cfgWeapons" >> (currentWeapon player) >> "picture"));
-			}
-			else
-			{
-				_pic = (gettext (configFile >> "CfgVehicles" >> (typeof vehicle player) >> "picture"));
-			};
+	_pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
+        if (player == vehicle player) then
+        {
+            _pic = (gettext (configFile >> 'cfgWeapons' >> (currentWeapon player) >> 'picture'));
+        }else{
+            _pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
+        };
 		_info_player =
 			"
 			<t size='1' font='Bitstream' align='center' color='#5882FA'>Survived %11 Days</t><br/>

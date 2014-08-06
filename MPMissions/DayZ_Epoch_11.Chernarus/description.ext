@@ -21,6 +21,8 @@ class RscIGUIShortcutButton;
 #include "scripts\help\hlp_defines.hpp"
 #include "scripts\help\hlp_dialog.hpp"
 
+#include "defines.hpp"
+
 respawn = "BASE";
 respawndelay = 5;
 onLoadMission= "DayZ Epoch Chernarus";
@@ -581,6 +583,5 @@ class CfgSounds
 #include "CfgServerTrader\cfgServerTrader.hpp"
 //Alchemy Building
 #include "scripts\Buildables\MT_Defines.hpp"
-#include "scripts\Buildables\Crafting_Defines.hpp"
 #include "scripts\Buildables\Crafting_Dialogs.hpp"
 

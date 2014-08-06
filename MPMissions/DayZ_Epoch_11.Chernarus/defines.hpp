@@ -499,3 +499,24 @@ class BOX
     text = ""; 
 
 };
+class RscBackground
+{
+	type = 0;
+	style = ST_BACKGROUND;
+	shadow = 2;
+	colorBackground[] = {0,0,0,1};
+	colorText[] = {1,1,1,1};
+	font = "Zeppelin32";
+	sizeEx = 0.02;
+	text = "";
+};
+class RscPicture 
+{
+	type = CT_STATIC;
+	idc = -1;
+	style = ST_PICTURE;
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {1, 1, 1, 1};
+	font = "Bitstream"; //Typeface
+	sizeEx = 0;
+};
