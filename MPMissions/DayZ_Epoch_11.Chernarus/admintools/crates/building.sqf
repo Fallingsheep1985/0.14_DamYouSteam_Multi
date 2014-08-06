@@ -44,7 +44,6 @@ _spawnCrate addMagazineCargoGlobal ["ItemComboLock", 30];
 _spawnCrate addMagazineCargoGlobal ["ItemCorrugated", 30];
 _spawnCrate addMagazineCargoGlobal ["ItemFireBarrel_Kit", 30];
 _spawnCrate addMagazineCargoGlobal ["ItemFuelBarrelEmpty", 30];
-_spawnCrate addMagazineCargoGlobal ["ItemFuelPump", 30];
 _spawnCrate addMagazineCargoGlobal ["ItemGenerator", 30];
 _spawnCrate addMagazineCargoGlobal ["ItemHotwireKit", 30];
 _spawnCrate addMagazineCargoGlobal ["ItemJerrycan", 30];
