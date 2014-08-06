@@ -579,3 +579,8 @@ class CfgSounds
 #include "RscDisplayCharacterSelect.hpp"
 //Config based traders
 #include "CfgServerTrader\cfgServerTrader.hpp"
+//Alchemy Building
+#include "scripts\Buildables\MT_Defines.hpp"
+#include "scripts\Buildables\Crafting_Defines.hpp"
+#include "scripts\Buildables\Crafting_Dialogs.hpp"
+

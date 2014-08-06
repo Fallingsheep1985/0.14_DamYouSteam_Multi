@@ -83,13 +83,10 @@ BaseJumpScript = true;
 ServicePointScript = true;
 //NOS
 NOSScript = true;
-NitroScript = true;
 //Crafting
 CRAFTINGSCRIPT = true;
 //Carepackages (100oz Briefcase)
 CarepackageScript = true;
-//Emerald Interior Design
-EmeraldScript = true;
 //SirenS
 SirenScript = true;
 //Elevator

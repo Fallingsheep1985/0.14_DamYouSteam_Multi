@@ -104,6 +104,7 @@ call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functi
 progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "init\compiles.sqf";				//Compile regular functions
 call compile preprocessFileLineNumbers "init\compiles2.sqf";			//compile overrides
+call compile preprocessFileLineNumbers "scripts\Buildables\Crafting_Compiles.sqf"; //Alchemy compiles
 progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
 progressLoadingScreen 1.0;
