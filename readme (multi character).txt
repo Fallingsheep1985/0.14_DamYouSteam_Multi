@@ -16,7 +16,7 @@ REPLACE YOUR MPMISSON PBO WITH THE ONE INCLUDED(IF YOU DONT USE A MPMISSION PBO 
 
 REPLACE YOUR HIVEEXT.DLL WITH THE ONE INCLUDED
 
-RUN THE MULTICHARACTER.SQL ON YOUR DB (ADDS SLOTS TO CHARTER TABLE)
+RUN THE MULTICHARACTER.SQL ON YOUR DB (ADDS SLOTS TO CHARACTER TABLE)
 
 
 THATS IT!
@@ -45,7 +45,7 @@ BASE BUILDING
 //				KNOWN BUGS
 ////////////////////////////////////////////////////////////////
 1. there is some delay when going from one trader to the next trader.
-2. Sometimes when on fresh server start player gets stuck at loading screen and can hear game but not see it. (close client and reopn to fix)
+2. Sometimes when on fresh server start player gets BE kick for setpos just rejoin.
 3. Ground fog / Wind Dust can cause low FPS and server lag
 
 
@@ -214,6 +214,7 @@ all other colors are normal loading stuff just split up to make it easier to see
 	Sgt M Everlast
 	MattL
 	AlexLawson
+	Carl
 	Each addon/script creator
 	The entire EPOCH team
 	The entire ARMA2 team
@@ -224,7 +225,7 @@ all other colors are normal loading stuff just split up to make it easier to see
 ////////////////////////////////////////////////////////////////
 //			SCRIPTS/ADDONS IN REPACK
 ////////////////////////////////////////////////////////////////
-Base Building 1.3
+Advanced Alchemy Building
 Admin Tools
 Debug Monitor 
 Take clothes 
@@ -253,7 +254,6 @@ House Lights
 Tower Lights
 Animated AN2 crashes
 AN2 carepackage drops
-Air Raid
 Welcome Credits
 Custom loading Screen
 Custom Loot
@@ -281,6 +281,6 @@ Lots more custom buildings
 call carepackage (right click 100oz briefcase)
 call carepackage to map location (right click 100oz briefcase)
 Journal
-Plotpole + Buidlables tied to UID
 Elevator
 Adjustable fog/view distance
+Fast Trading
