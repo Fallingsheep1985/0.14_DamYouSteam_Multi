@@ -158,7 +158,7 @@ tfv_TRADERS_PRICES = [
 ["ItemBandage",1],                             
 ["ItemBloodbag",1],                            
 ["ItemCitrine",5000],                          
-["ItemComboLock"],2000],                       
+["ItemComboLock",2000],                       
 ["ItemCompass",3],                             
 ["ItemCorrugated",100],                        
 ["ItemCrowbar",1],                             
