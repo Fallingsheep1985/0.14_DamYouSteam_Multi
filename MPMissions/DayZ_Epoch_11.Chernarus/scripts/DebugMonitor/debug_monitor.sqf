@@ -17,8 +17,7 @@ fnc_debug = {
         }else{
             _pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
         };
-		_info_player =
-			"
+		hintSilent parseText format ["
 			<t size='1' font='Bitstream' align='center' color='#5882FA'>Survived %11 Days</t><br/>
 			<t size='1' font='Bitstream' align='Center' >%1</t><br/>
 			<img size='5.5' image='%4'/><br/>
@@ -34,9 +33,7 @@ fnc_debug = {
 			<br/>
 			<t size='1' font='Bitstream' align='center' color='#FFBF00'>Server Restart: </t><t size='1' font='Bitstream' align='right'>%5min</t><br/>
 			<t size='1'font='Bitstream'align='center' color='#104E8B' >Press F10 to Toggle Debug</t><br/>
-			";
-		hintSilent parseText format 
-			[_info_player,
+			",
 			('' + (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'displayName'))),// %1 Vehicle/weapon name
 			_pic, // %2 vehicle/weapon pic
 			(count playableUnits), // %3Players Online
@@ -48,8 +45,8 @@ fnc_debug = {
 			_KillsB, // %9 Bandit kills
 			round (r_player_blood), // %10 blood
 			(dayz_Survived), // %11 days survived
-			_My_speed// %12 player speed
-			];
+			round(_My_speed)// %12 player speed
+		];
 		sleep 1;	
 	};
 };
