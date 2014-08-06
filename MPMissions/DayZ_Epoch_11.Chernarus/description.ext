@@ -521,24 +521,6 @@ class CfgSounds
 		sound[] = {"scripts\blowout\sounds\fx_drone2.ogg",1.0,1.0};
 		titles[] = {};
 	};
-	class nam
-    {
-        name = "Siren1";
-        sound[] = {sounds\SirenLoopMono.ogg, db+5, 1.0};
-        titles[] = {""};
-    };
-    class eve
-    {
-        name = "Siren2";
-        sound[] = {sounds\Sirens.ogg, db+5, 1.0};
-        titles[] = {""};
-    };
-    class puk
-    {
-        name = "Siren3";
-        sound[] = {sounds\Sirens2.ogg, db+5, 1.0};
-        titles[] = {""};
-    };
 	class z_wzombie1 {
 		name = "";
 		sound[] = {"sounds\femalezombie_attack_04.ogg",0.3,1,40};
