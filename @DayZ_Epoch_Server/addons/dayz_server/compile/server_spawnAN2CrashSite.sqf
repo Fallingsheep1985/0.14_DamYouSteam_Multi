@@ -236,8 +236,17 @@ while {true} do {
 
 		for "_x" from 1 to _num do {
 			//create loot
-			_index = floor(random _cntItems);			             
+			_index = floor(random _cntItems);
+			//zero divisor fix
+			if((_index)||(_index == 0))then{
+				_index = _index + 1;
+			};
+			//undefined var fix
+			_itemType = [];
+			
 			_itemType = _itemTypes select _index;
+			
+			
 			[_itemType select 0, _itemType select 1, _landedPos, 5] call spawn_loot;
 
 			diag_log(format["AN2CRASHSPAWNER: Loot Table: '%1', ItemTypes: '%2', Index: '%3', ItemType: '%4', Item: '%5'", _lootTable, str(_itemTypes), str(_index), str(_itemType), str(_itemType select 0)]); 

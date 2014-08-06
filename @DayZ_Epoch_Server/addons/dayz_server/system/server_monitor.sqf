@@ -163,6 +163,7 @@ if (isServer && isNil "sm_done") then {
 			_object setdir _dir;
 			_object setposATL _pos;
 			_object setDamage _damage;
+
 			
 			if ((typeOf _object) in dayz_allowedObjects) then {
 				if (DZE_GodModeBase) then {
@@ -177,7 +178,7 @@ if (isServer && isNil "sm_done") then {
 				
 			};
 
-			if ((count _intentory > 0) then {
+			if (count _intentory > 0) then {
 				if (_type in DZE_LockedStorage) then {
 					// Fill variables with loot
 					_object setVariable ["WeaponCargo", (_intentory select 0),true];
@@ -397,7 +398,7 @@ if (isServer && isNil "sm_done") then {
 	if(DZMSScript)then{
 		[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";
 	};
-	allowConnection = true;
+
 	//Spawn camps
 	dayz_Campspawner = [] spawn {
 		// quantity, marker, radius, min distance between 2 camps
@@ -405,6 +406,9 @@ if (isServer && isNil "sm_done") then {
 		dayzInfectedCamps = Server_InfectedCamps;
 		publicVariable "dayzInfectedCamps";
 	};	
+	
+	allowConnection = true;
+	
 	sm_done = true;
 	publicVariable "sm_done";
 };

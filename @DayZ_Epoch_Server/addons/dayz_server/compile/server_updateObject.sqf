@@ -25,6 +25,9 @@ if ((typeName _objectID != "string") || (typeName _uid != "string")) then
     _objectID = "0";
     _uid = "0";
 };
+if (_object getVariable "MalSar" == 1) exitWith {};
+if (_object getVariable "Sarge" == 1) exitWith {};
+if (_object getVariable "Mission" == 1) exitWith {};
 if (!_parachuteWest && !(locked _object)) then {
 	if (_objectID == "0" && _uid == "0") then
 	{
@@ -78,8 +81,7 @@ _object_inventory = {
 			//diag_log ("HIVE: WRITE: "+ str(_key));
 			_key call server_hiveWrite;
 		};
-};
-
+	};
 _object_damage = {
 	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
 		_hitpoints = _object call vehicle_getHitpoints;

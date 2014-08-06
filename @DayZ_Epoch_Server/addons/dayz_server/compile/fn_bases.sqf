@@ -30,16 +30,19 @@ private ["_clutter","_index","_lootMaxRadius2","_itemType","_position","_item","
 			_weights =		dayz_CBLChances select _index;
 			_cntWeights = (count _weights);
 			//Zero divisor fix
-			if((_cntWeights < 0)||(_cntWeights == 0))then{_cntWeights = _cntWeights + 1};
+			if((_cntWeights < 0)||(_cntWeights == 0))then{
+				_cntWeights = _cntWeights + 1;
+			};
 		
 			for "_x" from (round(random _randomLoot) + _guaranteedLoot) to 1 step -1  do {
 				//create loot
 				_index = floor(random _cntWeights);
 //Zero divisor fix
-				if((_index < 0)||(_index == 0))then{_index = _index + 1};
+				if((_index < 0)||(_index == 0))then{
+					_index = _index + 1;
+				};
 				_index = _weights select _index;
-				//Zero divisor fix
-				if((_index < 0)||(_index == 0))then{_index = _index + 1};
+				_itemType = [];
 				_itemType = _itemTypes select _index;
 
 				_position = [];

@@ -53,10 +53,10 @@ onPlayerDisconnected 		{[_uid,_name] call server_onPlayerDisconnect;};
 server_updateNearbyObjects = {
 	private["_pos"];
 	_pos = _this select 0;
+
 	{
 		[_x, "gear"] call server_updateObject;
 	} count nearestObjects [_pos, dayz_updateObjects, 10];
-	
 };
 
 server_handleZedSpawn = {

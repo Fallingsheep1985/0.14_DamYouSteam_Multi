@@ -154,7 +154,9 @@ if (_spawnRoll <= _spawnChance) then
     _weights =        dayz_CBLChances select _index;
     _cntWeights = (count _weights)
 	//Zero divisor fix
-	if((_cntWeights < 0)||(_cntWeights == 0))then{_cntWeights = _cntWeights + 1};
+	if((_cntWeights < 0)||(_cntWeights == 0))then{
+	_cntWeights = _cntWeights + 1;
+	};
     for "_x" from 1 to _num do
     {
         _maxLootRadius = (random _maxLootRadius) + _minLootRadius;
