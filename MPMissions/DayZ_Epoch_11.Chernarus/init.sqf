@@ -97,6 +97,7 @@ dayz_fullMoonNights = true;
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
+call compile preprocessFileLineNumbers "scripts\JAEM\variables.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "fixes\publicEH.sqf";	
 progressLoadingScreen 0.2;
@@ -247,6 +248,11 @@ if(WalkAmongstDeadScript)then{
 if(ServicePointScript)then{
 	if (!isDedicated) then {
 		execVM "scripts\ServicePoints\service_point.sqf";
+	};
+};
+if(JAEMScript)then{
+	if (!isDedicated) then {
+		execVM "scripts\JAEM\EvacChopper_init.sqf";
 	};
 };
 if(BaseJumpScript)then{
