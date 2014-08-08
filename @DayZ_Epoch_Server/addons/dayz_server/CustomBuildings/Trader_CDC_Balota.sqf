@@ -1,17 +1,7 @@
 //Created By HollowAddiction
 //http://www.craftdoge.com
 //http://epochmod.com/forum/index.php?/user/9988-hollowaddiction/
-
-
-_vehicle_912 = objNull;
-if (true) then
-{
-  _this = createVehicle ["Land_A_GeneralStore_01", [4599.5649, 2407.1968, 0.066584222], [], 0, "CAN_COLLIDE"];
-  _vehicle_912 = _this;
-  _this setDir 4.2683387;
-  _this setPos [4599.5649, 2407.1968, 0.066584222];
-};
-
+/*
 _vehicle_915 = objNull;
 if (true) then
 {
@@ -47,11 +37,11 @@ if (true) then
   _this setDir 11.11208;
   _this setPos [4614.376, 2421.9856, 8.5830688e-006];
 };
-
+*/
 _vehicle_920 = objNull;
 if (true) then
 {
-  _this = createVehicle ["Land_A_Hospital", [4852.8662, 2303.6487, 0.46696663], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["Land_A_Hospital", [4852.8662, 2303.6487, 0.00696663], [], 0, "CAN_COLLIDE"];
   _vehicle_920 = _this;
   _this setDir -148.23569;
   _this setPos [4852.8662, 2303.6487, 0.46696663];
@@ -60,7 +50,7 @@ if (true) then
 _vehicle_1642 = objNull;
 if (true) then
 {
-  _this = createVehicle ["Body", [4814.9702, 2272.4734, 1.2874603e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["Body", [4814.9702, 2272.4734, 0.0060381889], [], 0, "CAN_COLLIDE"];
   _vehicle_1642 = _this;
   _this setDir -60.193535;
   _this setPos [4814.9702, 2272.4734, 1.2874603e-005];
