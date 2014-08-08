@@ -20,6 +20,7 @@ _selectedAction = _params select 4;
 _cfg = (missionConfigFile >> "SnapBuilding" >> _classname);
 _whitelist = getArray (_cfg >> "snapTo");
 _points = getArray (_cfg >> "points");
+_radius = getNumber (_cfg >> "radius");
 
 //colors
 _objColorActive = "#(argb,8,8,3)color(0,0.92,0.06,1,ca)";
@@ -36,16 +37,16 @@ fnc_snapActionCleanup = {
 		player removeAction s_player_toggleSnapSelect;
 		{player removeAction _x;} count s_player_toggleSnapSelectPoint;
 		if (_s1 > 0) then {
-			s_player_toggleSnap = player addaction [format[("<t color=""#ffffff"">" + ("Snap: %1") +"</t>"),snapActionState],"scripts\snap_pro\snap_build.sqf",[snapActionState,_object,_classname,_objectHelper],6,false,true];
+			s_player_toggleSnap = player addaction [format[("<t color=""#ffffff"">" + ("Snap: %1") +"</t>"),snapActionState],"custom\snap_pro\snap_build.sqf",[snapActionState,_object,_classname,_objectHelper],6,false,true];
 		};
 		if (_s2 > 0) then {
-			s_player_toggleSnapSelect = player addaction [format[("<t color=""#ffffff"">" + ("Snap Point: %1") +"</t>"),snapActionStateSelect],"scripts\snap_pro\snap_build.sqf",[snapActionStateSelect,_object,_classname,_objectHelper],5,false,true];
-		};
+			s_player_toggleSnapSelect = player addaction [format[("<t color=""#ffffff"">" + ("Snap Point: %1") +"</t>"),snapActionStateSelect],"custom\snap_pro\snap_build.sqf",[snapActionStateSelect,_object,_classname,_objectHelper],5,false,true];
+	};
 		if (_s3 > 0) then {
 			s_player_toggleSnapSelectPoint=[];
 			_cnt = 0;
 			{
-				snapActions = player addaction [format[("<t color=""#ffffff"">" + ("%1)Select: %2") +"</t>"),_cnt,_x select 3],"scripts\snap_pro\snap_build.sqf",["Selected",_object,_classname,_objectHelper,_cnt],4,false,false];
+				snapActions = player addaction [format[("<t color=""#ffffff"">" + ("%1)Select: %2") +"</t>"),_cnt,_x select 3],"custom\snap_pro\snap_build.sqf",["Selected",_object,_classname,_objectHelper,_cnt],4,false,false];
 				s_player_toggleSnapSelectPoint set [count s_player_toggleSnapSelectPoint,snapActions];
 				_cnt = _cnt+1;
 			}count _points;
@@ -85,7 +86,7 @@ fnc_initSnapPoints = {
 fnc_initSnapPointsNearby = {
 	_pos = getPosATL _object;
 	_findWhitelisted = []; _pointsNearby = [];
-	_findWhitelisted = nearestObjects [_pos,_whitelist,15]-[_object];
+	_findWhitelisted = nearestObjects [_pos,_whitelist,_radius]-[_object];
 	snapGizmosNearby = [];	
 	{	
 		_nearbyObject = _x;
@@ -147,6 +148,8 @@ fnc_snapDistanceCheck = {
 						_objectHelper setPosATL _distClosestPointFoundPos;
 					};
 					_objectHelper setDir _distClosestPointFoundDir;
+					DZE_memDir = _distClosestPointFoundDir;
+					[_objectHelper,[DZE_memForBack,DZE_memLeftRight,DZE_memDir]] call fnc_SetPitchBankYaw;
 					waitUntil {sleep 0.1; !helperDetach};
 				};
 			} else {
@@ -326,6 +329,7 @@ switch (snapActionState) do {
 		_object attachTo [_objectHelper];
 		_x setobjecttexture [0,_objColorActive];
 		if (!helperDetach) then {_objectHelper attachTo [player];};	
+[_objectHelper,[DZE_memForBack,DZE_memLeftRight,DZE_memDir]] call fnc_SetPitchBankYaw;
 	};
 	_cnt = _cnt+1;
 }count snapGizmos;
