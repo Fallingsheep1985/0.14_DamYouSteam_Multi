@@ -14,7 +14,6 @@ class SnapBuilding {
 			"BagFenceRound_DZ",
 			"Fort_RazorWire"
 		};
-		radius = 5;
 	};
 	//snap points
 	class Land_HBarrier5Preview: Barrier{ //fix for broken offsets in ghost
@@ -123,7 +122,6 @@ class SnapBuilding {
 			"CinderWallDoorSmall_DZ",
 			"MetalFloor_DZ"
 		};
-		radius = 5;
 	};
 	
 	class WoodFloorQuarter_Preview_DZ: FloorsWallsStairs { //fix for broken offsets in ghost
@@ -173,7 +171,6 @@ class SnapBuilding {
 		{-2.45,0,0.130,"Left"},
 		{2.45,0,0.130,"Right"}
 		};
-		radius = 10;
 	};
 	class WoodFloor_DZ: WoodFloor_Preview_DZ{};
 	
@@ -186,7 +183,6 @@ class SnapBuilding {
 		{-1.73926,0.05,0,"Bottom"}
 		};
 	};
-	class WoodStairs_DZ: Stairs_DZE {};
 	class WoodStairs_Preview_DZ: Stairs_DZE {};
 	class WoodStairsSans_Preview_DZ: Stairs_DZE {};
 	class WoodStairsSans_DZ: Stairs_DZE {};
@@ -207,7 +203,6 @@ class SnapBuilding {
 	class WoodSmallWallWin_DZ: WoodSmall_DZE {};
 	class Land_DZE_WoodDoor: WoodSmall_DZE {};
 	class Land_DZE_WoodDoorLocked: WoodSmall_DZE {};
-	class WoodDoor_Preview_DZ: WoodSmall_DZE{};
 	
 	class WoodLarge_DZE: FloorsWallsStairs { //Large wood walls
 		points[] = {
@@ -246,7 +241,6 @@ class SnapBuilding {
 		{2.752, 0, 1.5,"Right"},
 		{0, 0, 3.37042,"Top"}
 		};
-		radius = 5;
 	};
 	class CinderWall_Preview_DZ: Cinder_DZE {};
 	class CinderWallDoorway_Preview_DZ: Cinder_DZE {};
@@ -277,14 +271,12 @@ class SnapBuilding {
 	
 	class MetalFloor_Preview_DZ: FloorsWallsStairs { //fix for broken offsets in ghost
 		points[] = {
-		{0,0,0.011,"Pivot"},
-
-		{0, -2.64, 0.009,"Back"},
-		{0, 2.64, 0.009,"Front"},
-		{-2.64, 0, 0.009,"Left"},
-		{2.64, 0, 0.009,"Right"}
+		{0,0,0,"Pivot"},
+		{0, -2.64, 0,"Back"},
+		{0, 2.64, 0,"Front"},
+		{-2.64, 0, 0,"Left"},
+		{2.64, 0, 0,"Right"}
 		};
-		radius = 10;
 	};
 	class MetalFloor_DZ: FloorsWallsStairs{
 		points[] = {
@@ -294,7 +286,6 @@ class SnapBuilding {
 		{-2.64, 0, 0.15,"Left"},
 		{2.64, 0, 0.15,"Right"}
 		};
-		radius = 10;
 	};
 	
 	
@@ -303,7 +294,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"WoodCrate_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{0,-0.47,0,"Back"},
@@ -318,7 +308,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"MetalPanel_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{-1.5,0,0,"Left"},
@@ -330,7 +319,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"MetalGate_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{-4.1,0,0,"Left"}
@@ -341,7 +329,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"StickFence_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{-2.95,0,0.3,"Left"},
@@ -353,7 +340,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"Fence_corrugated_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{-1.95,0,0.88,"Left"},
@@ -365,7 +351,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"WoodRamp_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{0.65,-1.7,1.2,"Back"},
@@ -379,7 +364,6 @@ class SnapBuilding {
 		snapTo[] = {
 			"WoodLadder_DZ"
 		};
-		radius = 5;
 		points[] = {
 		{0,0,0,"Pivot"},
 		{-0.4,0,1.725,"Left"},
@@ -387,21 +371,4 @@ class SnapBuilding {
 		};
 	};
 	class WoodLadder_DZ: WoodLadder_Preview_DZ{};
-	
-	class VaultStorageLocked {
-		snapTo[] = {
-			"VaultStorageLocked",
-			"VaultStorage"
-		};
-		radius = 5;
-		points[] = {
-		{0,0,0,"Pivot"},
-		{0,0.284,0.615,"Back"},
-		{0,0,1.23,"Top"},
-		{-0.362,0,0.615,"Left"},
-		{0.362,0,0.615,"Right"}
-		};
-		
-	};
-	class VaultStorage: VaultStorageLocked {};
 };
