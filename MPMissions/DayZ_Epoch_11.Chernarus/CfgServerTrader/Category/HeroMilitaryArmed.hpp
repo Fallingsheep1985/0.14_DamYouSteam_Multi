@@ -39,4 +39,9 @@ class Category_562 {
 		buy[] = {6,"ItemBriefcase100oz"};
 		sell[] = {3,"ItemBriefcase100oz"};
 	};
+	class HMMWV_MK19_DES_EP1{
+		type = "trade_any_vehicle";
+		buy[] = {1,"ItemBriefcase100oz"};
+		sell[] = {5,"ItemGoldBar10oz"};
+	};
 };
