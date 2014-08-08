@@ -44,7 +44,7 @@ if (true) then
   _this = createVehicle ["Land_A_Hospital", [4852.8662, 2303.6487, 0.00696663], [], 0, "CAN_COLLIDE"];
   _vehicle_920 = _this;
   _this setDir -148.23569;
-  _this setPos [4852.8662, 2303.6487, 0.46696663];
+  _this setPos [4852.8662, 2303.6487, 0.00696663];
 };
 
 _vehicle_1642 = objNull;
