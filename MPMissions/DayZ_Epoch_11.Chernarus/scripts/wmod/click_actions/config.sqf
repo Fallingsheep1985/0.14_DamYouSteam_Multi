@@ -24,7 +24,7 @@ DZE_CLICK_ACTIONS = [
 	["ItemBriefcase100oz","Call Carepackage (On Self)","[] execVM 'scripts\Carepackage\carepackage.sqf';","true"],
 	["ItemBriefcase100oz","Call Carepackage (On Map)","[] execVM 'scripts\Carepackage2\clickpackage.sqf';","true"],
 	["ItemKiloHemp","Smoke Weed","[] execVM 'scripts\HarvestHemp\smokeweed.sqf';","true"],
-	["ItemKnife","Harvest Weed","[] execVM 'scripts\HarvestHemp\hemp.sqf.sqf';","true"],
+	["ItemKnife","Harvest Weed","[] execVM 'scripts\HarvestHemp\hemp.sqf';","true"],
 	["ItemRadio","Group Management","[] execVM 'scripts\dzgm\loadGroupManagement.sqf';","true"],
 	["glock17_EP1","Suicide","[] execVM 'scripts\suicide\suicide_init.sqf';","true"],
 	["M9","Suicide","[] execVM 'scripts\suicide\suicide_init.sqf';","true"],
