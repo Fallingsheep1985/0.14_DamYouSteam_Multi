@@ -390,9 +390,8 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		if(_isVehicle) then {
 			
 			//flip vehicle small vehicles by your self && all other vehicles with help nearby
-			if (!(canmove _cursorTarget) && (player distance _cursorTarget >= 2) && (count (crew _cursorTarget))== 0 && ((vectorUp _cursorTarget) select 2) < 0.5) then {
-				_playersNear = {isPlayer _x} count (player nearEntities ["CAManBase", 6]);
-				if(_isVehicletype || (_playersNear >= 2)) then {
+			if (!(canmove _cursorTarget) && (player distance _cursorTarget >= 0) && (count (crew _cursorTarget))== 0 && ((vectorUp _cursorTarget) select 2) < 0.5) then {
+				if(_isVehicletype) then {
 					_player_flipveh = true;	
 				};
 			};
@@ -493,7 +492,7 @@ _Build = canbuild;
 	//flip vehicle small vehicles by your self && all other vehicles with help nearby
 	if(_player_flipveh) then {
 		if (s_player_flipveh  < 0) then {
-			s_player_flipveh = player addAction [format[localize "str_actions_flipveh",_text], "\z\addons\dayz_code\actions\player_flipvehicle.sqf",_cursorTarget, 1, true, true, "", ""];		
+			s_player_flipveh = player addAction [format[localize "str_actions_flipveh",_text], "fixes\flipvehicle.sqf",_cursorTarget, 1, true, true, "", ""];		
 		};
 	} else {
 		player removeAction s_player_flipveh;
