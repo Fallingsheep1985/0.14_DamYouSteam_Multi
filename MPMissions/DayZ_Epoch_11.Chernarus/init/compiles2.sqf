@@ -30,7 +30,7 @@ zombie_findTargetAgent =    compile preprocessFileLineNumbers "scripts\ZombieBai
 //Smelting fix
 player_craftItem =			compile preprocessFileLineNumbers "fixes\player_craftItem.sqf";
 //CANT TOW LOCKED VEHICLES
-local_lockUnlock = compile preprocessFileLineNumbers "scripts\Towing\local_lockUnlock.sqf";
+local_lockUnlock = compile preprocessFileLineNumbers "fixes\local_lockUnlock.sqf";
 
 //Snap Build
 
