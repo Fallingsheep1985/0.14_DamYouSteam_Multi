@@ -391,7 +391,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 			
 			//flip vehicle small vehicles by your self && all other vehicles with help nearby
 			if (!(canmove _cursorTarget) && (player distance _cursorTarget >= 0) && (count (crew _cursorTarget))== 0 && ((vectorUp _cursorTarget) select 2) < 0.5) then {
-				if(_isVehicletype) then {
+				if(_isVehicle) then {
 					_player_flipveh = true;	
 				};
 			};
