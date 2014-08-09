@@ -23,6 +23,7 @@ if ((getPlayerUID player) in AdminList) then { // Admins
 	["",true],
 		["-- Epoch Admin Tools (Level: Admin) --", [], "", -5, [["expression", ""]], "1", "0"],
 		["Admin Menu >>", [], "#USER:AdminMenu", -5, [["expression", ""]], "1", "1"],
+		["Admin Build Menu", [], "#USER:AdminBuildMenu", -5, [["expression", ""]], "1", "1"],
 		["Sheeps Menu >>", [], "#USER:SheepsMenu", -5, [["expression", ""]], "1", "1"],
 		["Vehicle Menu >>",[],"#USER:VehicleMenu",-5,[["expression",""]],"1","1"],		
 		["Crate Menu >>",[],"#USER:CrateMenuLocal",-5,[["expression",""]],"1","1"],
@@ -46,6 +47,233 @@ if ((getPlayerUID player) in AdminList) then { // Admins
 		];
 	}
 };
+AdminBuildMenu =
+[
+["",true],
+ ["Build", [2], "#USER:AdminBuildCategory", -5, [["expression", ""]], "1", "1"],
+ ["Upgrade Area", [3], "#USER:UpgradeAreaRadius", -5, [["expression", ""]], "1", "1"],
+ ["Repeat Build", [4], "", -5, [["expression", '[] execVM "admintools\tools\adminbuild\repeatbuild.sqf"']], "1", "1"],
+ ["", [-1], "", -5, [["expression", ""]], "1", "0"],
+ ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+UpgradeAreaRadius =
+[
+["",true],
+		["50m", [2], "", -5, [["expression", '[50] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["100m", [3], "", -5, [["expression", '[100] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["200m", [4], "", -5, [["expression", '[200] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["300m", [5], "", -5, [["expression", '[300] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["400m", [6], "", -5, [["expression", '[400] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["500m", [7], "", -5, [["expression", '[500] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["600m", [8], "", -5, [["expression", '[600] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["700m", [9], "", -5, [["expression", '[700] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["800m", [10], "", -5, [["expression", '[800] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["900m", [11], "", -5, [["expression", '[900] execVM "admintools\tools\adminbuild\upgradearea.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminBuildCategory = 
+[
+["",true],
+		["Cinder", [2], "#USER:AdminCinderBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Metal", [3], "#USER:AdminMetalBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Wood", [4], "#USER:AdminWoodBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Buildings", [5], "#USER:AdminBuildingsBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Items", [6], "#USER:AdminItemsBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Storage", [7], "#USER:AdminStorageBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Camo Netting", [8], "#USER:AdminNettingBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Wrecks", [9], "#USER:AdminWrecksBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["Ore Veins", [10], "#USER:AdminOreBuildMenu", -5, [["expression", ""]], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminCinderBuildMenu = 
+[
+["",true],
+		["Cinder Wall Half", [2],  "", -5, [["expression", '["CinderWallHalf_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Cinder Wall", [3],  "", -5, [["expression", '["CinderWall_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Cinder Garage Doorway", [4],  "", -5, [["expression", '["CinderWallDoorway_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Cinder Door", [5],  "", -5, [["expression", '["CinderWallDoorSmall_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+			["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminMetalBuildMenu = 
+[
+["",true],
+		["Metal Panel", [2],  "", -5, [["expression", '["MetalPanel_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Metal Floor/Ceiling", [3],  "", -5, [["expression", '["MetalFloor_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+
+// =========================================================================================================================================================
+
+AdminWoodBuildMenu = 
+[
+["",true],
+		["Wood Wall Large", [2],  "", -5, [["expression", '["WoodLargeWall_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Garage Large", [3],  "", -5, [["expression", '["Land_DZE_GarageWoodDoor"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Door Large", [4],  "", -5, [["expression", '["WoodLargeWallDoor_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Floor", [5],  "", -5, [["expression", '["WoodFloor_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Wall 1/3", [6],  "", -5, [["expression", '["WoodSmallWallThird_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Window Large", [7],  "", -5, [["expression", '["WoodLargeWallWin_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Stairs", [8],  "", -5, [["expression", '["WoodStairs_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Next page", [12], "#USER:AdminWoodBuildMenu2", -5, [["expression", ""]], "1", "1"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+AdminWoodBuildMenu2 = 
+[
+["",true],
+		["Wood Ramp", [2],  "", -5, [["expression", '["WoodLargeWall_Preview_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Ladder", [3],  "", -5, [["expression", '["WoodLadder_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Stair With Railing", [4],  "", -5, [["expression", '["WoodStairsRails_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Stair Sans", [5],  "", -5, [["expression", '["WoodStairsSans_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminBuildingsBuildMenu = 
+[
+["",true],
+		["Outhouse", [2],  "", -5, [["expression", '["OutHouse_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Storage Shed", [3],  "", -5, [["expression", '["StorageShed_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wood Shack", [4],  "", -5, [["expression", '["WoodShack_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wooden Shed", [5],  "", -5, [["expression", '["Wooden_shed_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Stick Fence", [6],  "", -5, [["expression", '["StickFence_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Scaffolding", [7],  "", -5, [["expression", '["Scaffolding_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminItemsBuildMenu = 
+[
+["",true],
+		["Tank Trap", [2],  "", -5, [["expression", '["Hedgehog_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Generator", [3],  "", -5, [["expression", '["Generator_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Fuel Pump", [4],  "", -5, [["expression", '["FuelPump_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Wire Fence", [5],  "", -5, [["expression", '["Fort_RazorWire"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Sandbag Fence", [6],  "", -5, [["expression", '["Sandbag1_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Sandbag Fence Round", [7],  "", -5, [["expression", '["BagFenceRound_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["H-Barrier", [8],  "", -5, [["expression", '["Land_HBarrier1_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Next page", [12], "#USER:AdminItemsBuildMenu2", -5, [["expression", ""]], "1", "1"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+AdminItemsBuildMenu2 = 
+[
+["",true],
+		["3x H-Barrier", [2],  "", -5, [["expression", '["Land_HBarrier3_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["5x H-Barrier", [3],  "", -5, [["expression", '["Land_HBarrier5_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Sandbag Nest", [4],  "", -5, [["expression", '["SandNest_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Fire Barrel", [5],  "", -5, [["expression", '["FireBarrel_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Gun Rack", [6],  "", -5, [["expression", '["GunRack_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["M240 Nest", [7],  "", -5, [["expression", '["M240Nest_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["H-Barrier", [8],  "", -5, [["expression", '["Land_HBarrier1_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminStorageBuildMenu =
+[
+["",true],
+		["Safe", [2],  "", -5, [["expression", '["VaultStorageLocked"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["LockBox", [3],  "", -5, [["expression", '["LockboxStorageLocked"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Safe Temporary", [4],  "", -5, [["expression", '["VaultStorage"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["LockBox Temporary", [5],  "", -5, [["expression", '["LockboxStorage"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Explosives Stash", [6],  "", -5, [["expression", '["BAF_IEDBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["BAF Launchers", [7],  "", -5, [["expression", '["BAF_Launchers"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["BAF Ordnance", [8],  "", -5, [["expression", '["BAF_OrdnanceBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Next page", [12], "#USER:AdminStorageBuildMenu2", -5, [["expression", ""]], "1", "1"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+AdminStorageBuildMenu2 =
+[
+["",true],
+		["BAF Vehicle Ammo", [2],  "", -5, [["expression", '["BAF_VehicleBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["CZ Weapons", [3],  "", -5, [["expression", '["CZBasicWeapons_EP1"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["GER Weapons", [4],  "", -5, [["expression", '["GERBasicWeapons_EP1"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Guerilla Cache 1", [5],  "", -5, [["expression", '["GuerillaCacheBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Guerilla Cache 2", [6],  "", -5, [["expression", '["GuerillaCacheBox_EP1"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Gun rack", [7],  "", -5, [["expression", '["GunRack_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Local Basic Ammunition", [8],  "", -5, [["expression", '["LocalBasicAmmunitionBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Next page", [12], "#USER:AdminStorageBuildMenu3", -5, [["expression", ""]], "1", "1"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+AdminStorageBuildMenu3 =
+[
+["",true],
+		["Local Basic Weapons", [2],  "", -5, [["expression", '["LocalBasicWeaponsBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Ammo Crates", [3],  "", -5, [["expression", '["ReammoBox_EP1"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["RU Basic Ammunition", [4],  "", -5, [["expression", '["RUBasicAmmunitionBox"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Next page", [12], "#USER:AdminStorageBuildMenu3", -5, [["expression", ""]], "1", "1"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================
+
+AdminNettingBuildMenu =
+[
+["",true],
+		["Desert Camo", [2],  "", -5, [["expression", '["DesertCamoNet_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Forest Camo", [3],  "", -5, [["expression", '["ForestCamoNet_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Desert Camo Large", [4],  "", -5, [["expression", '["DesertLargeCamoNet_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Forest Camo Large", [5],  "", -5, [["expression", '["ForestLargeCamoNet_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================//
+
+AdminWrecksBuildMenu =
+[
+["",true],
+		["UH60 Navy", [2],  "", -5, [["expression", '["UH60_NAVY_Wreck_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["UH60 Army", [3],  "", -5, [["expression", '["UH60_ARMY_Wreck_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["UH60 Navy Burned", [4],  "", -5, [["expression", '["UH60_NAVY_Wreck_burned_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["UH60 Army Burned", [5],  "", -5, [["expression", '["UH60_ARMY_Wreck_burned_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["UH1", [6],  "", -5, [["expression", '["UH1Wreck_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["UH60", [7],  "", -5, [["expression", '["UH60Wreck_DZ"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+// =========================================================================================================================================================//
+
+AdminOreBuildMenu =
+[
+["",true],
+		["Iron", [2],  "", -5, [["expression", '["Iron_Vein_DZE"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Silver", [3],  "", -5, [["expression", '["Silver_Vein_DZE"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["Gold", [4],  "", -5, [["expression", '["Gold_Vein_DZE"] execVM "admintools\tools\adminbuild.sqf"']], "1", "1"],
+		["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
 SheepsMenu =
 [
 ["",true],

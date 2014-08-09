@@ -284,4 +284,5 @@ sleep 30;
 if(adminScript)then{
 	// Epoch Admin Tools
 	[] execVM "admintools\Activate.sqf";
+	[] execVM "admintools\tools\adminbuild\keypress.sqf";
 };
