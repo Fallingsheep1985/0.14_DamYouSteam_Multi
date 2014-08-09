@@ -40,8 +40,70 @@
 */
 
 //----------------------------Add your custom spawn definitions below this line ----------------------------
-// Sector FNG
+//Black Lake Castle
+[
+"DZAI_marker_castle1",
+4,
+3,
+false
+] call DZAI_spawn_units;
 
+[
+"DZAI_marker_castle2",
+3,
+2,
+false
+] call DZAI_spawn_units;
+
+[
+"DZAI_marker_castle3",
+4,
+3,
+false
+] call DZAI_spawn_units;
+
+[
+"DZAI_marker_castle4",
+3,
+3,
+false
+] call DZAI_spawn_units;
+//tower
+[
+"DZAI_marker_castle5",
+1,
+3,
+false
+] call DZAI_spawn_units;
+//tower
+[
+"DZAI_marker_castle6",
+1,
+3,
+false
+] call DZAI_spawn_units;
+
+//Kamenka Mine
+[
+"DZAI_marker_mine1",
+4,
+3,
+false
+] call DZAI_spawn_units;
+[
+"DZAI_marker_mine2",
+3,
+2,
+false
+] call DZAI_spawn_units;
+[
+"DZAI_marker_mine3",
+4,
+3,
+false
+] call DZAI_spawn_units;
+
+// Sector FNG
 [
 "DZAI_marker_sectorfng_front",
 4,

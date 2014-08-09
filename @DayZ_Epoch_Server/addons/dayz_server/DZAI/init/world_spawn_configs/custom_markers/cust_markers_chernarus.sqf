@@ -25,6 +25,83 @@
 */
 
 //----------------------------Add your custom markers below this line ----------------------------
+
+//Black lake castle
+_this = createMarker ["DZAI_marker_castle1", [13361, 11981]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_castle1 = _this;
+
+_this = createMarker ["DZAI_marker_castle2", [13390, 12018]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_castle2 = _this;
+
+_this = createMarker ["DZAI_marker_castle3", [13350, 11994]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_castle3 = _this;
+
+_this = createMarker ["DZAI_marker_castle4", [13372, 11994]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_castle4 = _this;
+//tower
+_this = createMarker ["DZAI_marker_castle5", [13379, 12018]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_castle5 = _this;
+//tower
+_this = createMarker ["DZAI_marker_castle6", [13337, 11975]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_castle6 = _this;
+
+//Kamenka Mine
+_this = createMarker ["DZAI_marker_mine1", [60, 1578]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_mine1 = _this;
+
+_this = createMarker ["DZAI_marker_mine2", [72.4206, 1620.55]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_mine2 = _this;
+
+_this = createMarker ["DZAI_marker_mine3", [147.194, 1606.57]];
+_this setMarkerShape "ELLIPSE";
+_this setMarkerType "Flag";
+_this setMarkerBrush "Solid";
+_this setMarkerSize [50, 50];
+_this setMarkeralpha 0;
+DZAI_marker_mine3 = _this;
+
+
+
 // Sector FNG - Front Base Patrol Area
 _this = createMarker ["DZAI_marker_sectorfng_front", [6559, 14199]];
 _this setMarkerShape "ELLIPSE";
