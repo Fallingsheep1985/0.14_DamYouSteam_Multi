@@ -68,14 +68,7 @@ switch (_option) do {
 					};
 				} forEach _objects;
 				cutText [format["%1 of %2 objects deleted", _i, count _objects], "PLAIN DOWN"];
-							if ( AdminTrackBaseDelete)then {
-		_playerUID = getplayerUID player;
-		_playerName = name player;
-		_pos = getPos player;
-		_log  = (format["[ADMIN TOOLS] - BASE DELETE - Admin Name: %1 UID: %2 POS: %3" , _playerName, _playerUID, _pos ]);
-		admin_Log = [_log];
-		publicVariableServer "admin_Log";
-			};
+							
 			};
 		};
 	};

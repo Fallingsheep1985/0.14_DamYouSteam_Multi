@@ -20,11 +20,3 @@ s_player_lockUnlock_crtl = 1;
 	
 s_player_lockUnlock_crtl = -1;
 DZE_ActionInProgress = false;
-if ( AdminTrackUnLockVehicles ) then{
-	_playerUID = getplayerUID player;
-	_playerName = name player;
-	_pos = getPos player;
-	_log  = (format["[ADMIN TOOLS] - UNLOCKED VEHICLE - Admin Name: %1 UID: %2 Vehicle: %4 POS: %3" , _playerName, _playerUID, _pos, _vehicle ]);
-	admin_Log = [_log];
-	publicVariableServer "admin_Log";
-};

@@ -79,26 +79,9 @@ if(areaGodMode) then {
 	if (circumferenceIsSet) then {
 		call LocalTriggerCreate;
 		titleText [format["Safe Zone area set with circumference of %1 meters!",circumference],"PLAIN DOWN"]; titleFadeOut 3;
-		if ( AdminTrackSafezone )then {
-		_pos = getPos player;
-		_playerUID = getplayerUID player;
-		_playerName = name player;
-		//LOG TO RPT
-		_log  = (format["[ADMIN TOOLS] - SAFE ZONE CREATED - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ]);
-		admin_Log = [_log];
-		publicVariableServer "admin_Log";
-		};
 	};
 } else {
-	if ( AdminTrackSafezone )then {
-		_pos = getPos player;
-		_playerUID = getplayerUID player;
-		_playerName = name player;
-		//LOG TO RPT
-		_log  = (format["[ADMIN TOOLS] - SAFE ZONE REMOVED - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ]);
-		admin_Log = [_log];
-		publicVariableServer "admin_Log";
-	};
+	
 	call LocalTriggerDelete;
 	titleText ["Safe Zone area REMOVED!","PLAIN DOWN"]; titleFadeOut 3;
 };

@@ -20,8 +20,3 @@ GearAdd addWeapon 'ItemToolbox';
 (Unitbackpack GearAdd) addMagazineCargo ['ItemBandage', 2];
 (Unitbackpack GearAdd) addMagazineCargo ['FoodSteakCooked', 3];
 (Unitbackpack GearAdd) addMagazineCargo ['ItemMorphine', 2];
-if ( AdminTrackItems ) then {
-	_playerUID = getplayerUID player;
-	_playerName = name player;
-	diag_log format["[ADMIN TOOLS] - SPAWNED ITEMS  - Admin Name: %1 UID: %2 " , _playerName, _playerUID];
-};

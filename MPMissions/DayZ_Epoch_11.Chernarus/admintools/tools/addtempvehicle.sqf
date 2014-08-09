@@ -23,11 +23,3 @@ _veh addEventHandler ["GetIn",{
  
 cutText ["Spawned a vehicle.", "PLAIN DOWN"];
 
-if ( AdminTrackTempVehicles ) then{
-		_playerUID = getplayerUID player;
-		_playerName = name player;
-		_pos = getPos player;
-		_log  = (format["[ADMIN TOOLS] - SPAWN TEMP VEHICLE - Admin Name: %1 UID: %2 Vehicle: %4 POS: %3" , _playerName, _playerUID, _pos, _vehtospawn ]);
-		admin_Log = [_log];
-		publicVariableServer "admin_Log";
-};

@@ -124,15 +124,7 @@ delaymenu =
 showCommandingMenu "#USER:delaymenu";
 WaitUntil{DelaySelected};
 DelaySelected=false;
-if ( AdminTrackBuildingCrate )then {
-	_pos = getPos player;
-	_playerUID = getplayerUID player;
-	_playerName = name player;
-	//LOG TO RPT
-	_log  = (format["[ADMIN TOOLS] - SPAWNED BUILDING CRATE  - Admin Name: %1 UID: %2 Position: %3 " , _playerName, _playerUID, _pos ]);
-	admin_Log = [_log];
-	publicVariableServer "admin_Log";
-};
+
 titleText [format[_crateName + " will disappear in %1 seconds.",SelectDelay],"PLAIN DOWN"]; titleFadeOut 4;
 sleep SelectDelay;
 

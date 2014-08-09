@@ -41,16 +41,6 @@ if(selector) then
 		if(_target isKindOf "Man") then {
 			_humanity = _target getVariable["humanity", 0];
 			_target setVariable["humanity", _humanity + humanityGain, true];
-		if ( AdminTrackHumanity) then{
-			_targetName = name _target;
-			_pos = getPos player;
-			_playerUID = getplayerUID player;
-			_playerName = name player;
-			//LOG TO RPT
-			_log  = (format["[ADMIN TOOLS] - HUMANITY REMOVE TARGET  - Admin Name: %1 UID: %2 Position: %3 Target: %4" , _playerName, _playerUID, _pos, _targetName ]);
-			admin_Log = [_log];
-			publicVariableServer "admin_Log";
-		};
 			cutText [format["%1 humanity has been removed (total: %2) for player %3", humanityGain, _humanity + humanityGain, name _target],"PLAIN DOWN"]; titleFadeOut 10;
 		};
 	};

@@ -94,15 +94,6 @@ if ( AdminTrackAdminMode )then {
 	call modToggleON;
 }
 else{
-if ( AdminTrackAdminMode ) then{
-_pos = getPos player;
-	_playerUID = getplayerUID player;
-	_playerName = name player;
-	//LOG TO RPT
-	_log  = (format["[ADMIN TOOLS] - ADMIN MODE OFF  - Admin Name: %1 UID: %2 Position: %3" , _playerName, _playerUID, _pos ]);
-	admin_Log = [_log];
-	publicVariableServer "admin_Log";
-};
 	titleText ["Mod Mode - DISABLED","PLAIN DOWN"];titleFadeOut 3;
 	(findDisplay 46) displayRemoveEventHandler ["KeyDown", F4_KEY];
 	call modToggleOFF;

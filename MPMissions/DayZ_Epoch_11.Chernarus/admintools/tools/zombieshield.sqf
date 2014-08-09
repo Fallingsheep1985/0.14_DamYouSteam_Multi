@@ -18,14 +18,7 @@ if (isNil "SheildMe") then {SheildMe = true;} else {SheildMe = !SheildMe;};
 	showCommandingMenu "#USER:zombieDistanceScreen";
 	WaitUntil{(ZobieDistanceStat || (commandingMenu == ""))};
 	titleText [format["Zombie shield activated with distance %1 meters!",ZombieDistance],"PLAIN DOWN"]; titleFadeOut 4;
-	if ( AdminTrackZombiesheild ) then{
-		_playerUID = getplayerUID player;
-		_playerName = name player;
-		_pos = getPos player;
-		_log  = (format["[ADMIN TOOLS] - CREATED ZOMBIE SHEILD - Admin Name: %1 UID: %2 POS: %3" , _playerName, _playerUID, _pos ]);
-		admin_Log = [_log];
-		publicVariableServer "admin_Log";
-	};
+
 } 
 else {
 	ZobieDistanceStat=false;
@@ -54,11 +47,4 @@ else {
 	Sleep 0.3;
 };
 titleText ["Zombie shield deactivated!","PLAIN DOWN"]; titleFadeOut 4;
-if ( AdminTrackZombiesheild )then {
-		_playerUID = getplayerUID player;
-		_playerName = name player;
-		_pos = getPos player;
-		_log  = (format["[ADMIN TOOLS] - REMOVED ZOMBIE SHEILD - Admin Name: %1 UID: %2 POS: %3" , _playerName, _playerUID, _pos ]);
-		admin_Log = [_log];
-		publicVariableServer "admin_Log";
-	};
+

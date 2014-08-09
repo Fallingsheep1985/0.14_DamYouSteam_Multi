@@ -26,15 +26,7 @@ if (_ct isKindOf "LandVehicle" OR _ct isKindOf "Helicopter" OR _ct isKindOf "Pla
 	{
 		player addweapon _result;
 		cutText [format["Key [%1] added to inventory!",_result], "PLAIN"];
-		if ( AdminTrackGiveKey) then{
-			_playerUID = getplayerUID player;
-			_playerName = name player;
-			_pos = getPos player;
-			_log  = (format["[ADMIN TOOLS] - GET CODE - Admin Name: %1 UID: %2 POS: %3 OwnerID: %4" , _playerName, _playerUID, _pos, _id ]);
-			admin_Log = [_log];
-			publicVariableServer "admin_Log";
-
-		};
+		
 	};
 };
 
