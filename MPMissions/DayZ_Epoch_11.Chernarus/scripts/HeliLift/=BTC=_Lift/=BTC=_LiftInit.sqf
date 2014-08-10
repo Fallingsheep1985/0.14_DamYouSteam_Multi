@@ -91,6 +91,11 @@ while {true} do
 			{_x ctrlShow false} foreach _array_hud;
 			BTC_Hud_Shown = false;
 		};
+		//Cant lift towed vehicle test
+		if (_cargo getVariable ["MF_Tow_Cannot_Tow",true];) then {
+			_can_lift = false;
+		};
+		
 		if (_cargo isKindOf "Air" && getdammage _cargo != 1) then {
 			_can_lift = false;
 		};
