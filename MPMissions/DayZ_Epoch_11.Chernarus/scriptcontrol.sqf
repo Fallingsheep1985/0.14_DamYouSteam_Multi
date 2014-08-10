@@ -95,3 +95,5 @@ ElevatorScript = true;
 ZombieTruckScript = true;
 //trade from vehicle
 TradeFromVehicleScript = true;
+//EVAC chopper
+JAEMScript = true;
