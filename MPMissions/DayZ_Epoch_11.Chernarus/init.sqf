@@ -280,7 +280,7 @@ waitUntil {!isNil "PVDZE_plr_LoginRecord"};
 if ((!isDedicated) && (dayzPlayerLogin2 select 2)) then {call espawn;};
 
 //wait before admin script is active
-sleep 30;
+sleep 15;
 if(adminScript)then{
 	// Epoch Admin Tools
 	[] execVM "admintools\Activate.sqf";
