@@ -13,7 +13,7 @@ if (dayz_combat == 1) then {
 	sleep 6;
 	
 	_pos = getpos player;
-	_object = "WeaponHolder" createVehicle getposATL player; _object addMagazinecargo ["PartGeneric", 1]; _object addMagazinecargo ["PartVRotor", 1];
+	_object = "WeaponHolder" createVehicle getposATL player; _object addMagazinecargo ["PartGeneric", 1]; _object addMagazinecargo ["PartVRotor", 1];_object addMagazinecargo ["PartGeneric", 1]; _object addMagazinecargo ["PartEngine", 1];
 	_object setPos _pos;
 	player addWeapon "ItemToolbox";
 
