@@ -29,6 +29,6 @@ if (_hasInvite) exitWith {systemChat "This player already has a pending invite."
 currentInvites set [count currentInvites,[getPlayerUID player,getPlayerUID _target]];
 publicVariable "currentInvites"; 
 
-[nil,_target,"loc", rTITLETEXT, format["You have received a group invite. Press right ctrl to view."], "PLAIN", 0] call RE;
+[nil,_target,"loc", rTITLETEXT, format["You have received a group invite. Press right F9 to view."], "PLAIN", 0] call RE;
 
 systemChat format["You have invited %1 to join the group",name _target];

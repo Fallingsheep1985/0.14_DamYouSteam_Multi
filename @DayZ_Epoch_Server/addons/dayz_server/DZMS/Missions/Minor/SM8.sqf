@@ -10,7 +10,7 @@ _missName = "Bandit Gold";
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;
 
-[nil,nil,rTitleText,"Bandits have been seen hoarding gold! /n Go find it!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"Bandits have been seen hoarding gold!\n Go find it!", "PLAIN",10] call RE;
 
 //DZMSAddMinMarker is a simple script that adds a marker to the location
 [_coords,_missName] ExecVM DZMSAddMinMarker;
