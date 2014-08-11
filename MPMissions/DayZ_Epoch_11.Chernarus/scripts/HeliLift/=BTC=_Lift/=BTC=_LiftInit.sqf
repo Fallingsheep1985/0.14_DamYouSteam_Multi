@@ -92,7 +92,7 @@ while {true} do
 			BTC_Hud_Shown = false;
 		};
 		//Cant lift towed vehicle test
-		if (_cargo getVariable ["MF_Tow_Cannot_Tow",true];) then {
+		if (_cargo getVariable ["MF_Tow_Cannot_Tow",true]) then {
 			_can_lift = false;
 		};
 		
