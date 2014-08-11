@@ -65,9 +65,7 @@ DZE_MissionLootTable = true; //Custom Loot Tables
 DZE_selfTransfuse = true; //Self blood bag
 //Config based traders
 DZE_ConfigTrader = true;
-//Build Vectors
-DZE_noRotate = []; //Objects that cannot be rotated. Ex: DZE_noRotate = ["VaultStorageLocked"]
-DZE_curPitch = 45; //Starting rotation angle. Only 1, 5, 45, or 90.
+
 DZE_selfTransfuse_Values = [
 6000, //Blood amount
  10,  // Chance of Infection

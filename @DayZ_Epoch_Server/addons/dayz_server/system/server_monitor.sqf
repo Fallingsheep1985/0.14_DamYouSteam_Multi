@@ -86,6 +86,7 @@ if (isServer && isNil "sm_done") then {
 	
 	// # NOW SPAWN OBJECTS #
 	_totalvehicles = 0;
+	PVDZE_EvacChopperFields = [];
 	{
 		_idKey = 		_x select 1;
 		_type =			_x select 2;
@@ -98,31 +99,16 @@ if (isServer && isNil "sm_done") then {
 		_damage = 		_x select 8;
 		
 		_dir = 0;
-		_vector = [[0,0,0],[0,0,0]];
-		_vecExists = false;
-		
 		_pos = [0,0,0];
 		_wsDone = false;
-    if (count _worldspace >= 2) then
-        {
-            if(count _worldspace == 3) then{
-                _vector = _worldspace select 2;
-                if(typename _vector == "ARRAY")then{
-                    if(count _vector == 2)then{
-                        if(((count (_vector select 0)) == 3) && ((count (_vector select 1)) == 3))then{
-                            _vecExists = true;
-                        };
-                    };
-
-                };
-
-            };
-            _dir = _worldspace select 0;
-            if (count (_worldspace select 1) == 3) then {
-                _pos = _worldspace select 1;
-                _wsDone = true;
-            }
-        };			
+		if (count _worldspace >= 2) then
+		{
+			_dir = _worldspace select 0;
+			if (count (_worldspace select 1) == 3) then {
+				_pos = _worldspace select 1;
+				_wsDone = true;
+			}
+		};			
 		
 		if (!_wsDone) then {
 			if (count _worldspace >= 1) then { _dir = _worldspace select 0; };
@@ -176,13 +162,12 @@ if (isServer && isNil "sm_done") then {
 			// _object setVehicleAmmo DZE_vehicleAmmo;
 			
 			_object setdir _dir;
-			
-			if(_vecExists)then{
-				_object setVectorDirAndUp _vector;
-			};
-			
 			_object setposATL _pos;
 			_object setDamage _damage;
+
+			if ((typeOf _object) == "HeliHRescue") then {
+				PVDZE_EvacChopperFields set [count PVDZE_EvacChopperFields, _object];
+			};
 			
 			if ((typeOf _object) in dayz_allowedObjects) then {
 				if (DZE_GodModeBase) then {
@@ -265,6 +250,8 @@ if (isServer && isNil "sm_done") then {
 					
 					if(_ownerID != "0" && !(_object isKindOf "Bicycle")) then {
 						_object setvehiclelock "locked";
+						_object setVariable ["MF_Tow_Cannot_Tow",true,true];
+						_object setVariable ["BTC_Cannot_Lift",true,true];
 					};
 					
 					_totalvehicles = _totalvehicles + 1;
@@ -279,7 +266,7 @@ if (isServer && isNil "sm_done") then {
 		};
 	} count (_BuildingQueue + _objectQueue);
 	// # END SPAWN OBJECTS #
-	
+
 	// preload server traders menu data into cache
 	if !(DZE_ConfigTrader) then {
 		{

@@ -5,9 +5,6 @@
 private ["_helperColor","_objectHelper","_objectHelperDir","_objectHelperPos","_canDo",
 "_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_object","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_needNear","_vehicle","_inVehicle","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
 
-DZE_BuildVector = [[0,0,0],[0,0,0]];
-
-
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"];};
 DZE_ActionInProgress = true;
 
@@ -25,49 +22,6 @@ _inVehicle = (_vehicle != player);
 //snap
 helperDetach = false;
 _canDo = (!r_drag_sqf and !r_player_unconscious);
-
-
-_vector = [];
-
-fnc_SetPitchBankYaw = { 
-    private ["_object","_rotations","_aroundX","_aroundY","_aroundZ","_dirX","_dirY","_dirZ","_upX","_upY","_upZ","_dir","_up","_dirXTemp",
-    "_upXTemp"];
-    _object = _this select 0; 
-    _rotations = _this select 1; 
-    _aroundX = _rotations select 0; 
-    _aroundY = _rotations select 1; 
-    _aroundZ = (360 - (_rotations select 2)) - 360; 
-    _dirX = 0; 
-    _dirY = 1; 
-    _dirZ = 0; 
-    _upX = 0; 
-    _upY = 0; 
-    _upZ = 1; 
-    if (_aroundX != 0) then { 
-        _dirY = cos _aroundX; 
-        _dirZ = sin _aroundX; 
-        _upY = -sin _aroundX; 
-        _upZ = cos _aroundX; 
-    }; 
-    if (_aroundY != 0) then { 
-        _dirX = _dirZ * sin _aroundY; 
-        _dirZ = _dirZ * cos _aroundY; 
-        _upX = _upZ * sin _aroundY; 
-        _upZ = _upZ * cos _aroundY; 
-    }; 
-    if (_aroundZ != 0) then { 
-        _dirXTemp = _dirX; 
-        _dirX = (_dirXTemp* cos _aroundZ) - (_dirY * sin _aroundZ); 
-        _dirY = (_dirY * cos _aroundZ) + (_dirXTemp * sin _aroundZ);        
-        _upXTemp = _upX; 
-        _upX = (_upXTemp * cos _aroundZ) - (_upY * sin _aroundZ); 
-        _upY = (_upY * cos _aroundZ) + (_upXTemp * sin _aroundZ); 		
-    }; 
-    _dir = [_dirX,_dirY,_dirZ]; 
-    _up = [_upX,_upY,_upZ]; 
-    _object setVectorDirAndUp [_dir,_up];
-	DZE_BuildVector = [_dir,_up];
-}; 
 
 DZE_Q = false;
 DZE_Z = false;
@@ -253,12 +207,10 @@ if (_hasrequireditem) then {
 	// if ghost preview available use that instead
 	if (_ghost != "") then {
 		_classname = _ghost;
-
 	};
 
-
 	_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-	_object setDir 0;
+
 	//Build gizmo
 	_objectHelper = "Sign_sphere10cm_EP1" createVehicle _location;
 	_helperColor = "#(argb,8,8,3)color(0,0,0,0,ca)";
@@ -276,22 +228,6 @@ if (_hasrequireditem) then {
 if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 	if(!DZE_SNAP_PRO_USE_COMMAND_MENU) then {
 		["","","",["Init",_object,_classname,_objectHelper]] spawn snap_build;
-
-	DZE_updateVec = false;
-	DZE_memDir = getDir _objectHelper;
-	DZE_memForBack = 0;
-	DZE_memLeftRight = 0;
-	if !(_classname in DZE_noRotate) then{
-		s_player_setVectorsReset = player addaction ["Reset","scripts\snap_pro\player_vectorChange.sqf","reset"];
-		s_player_setVectorsForward = player addaction ["Pitch Forward","scripts\snap_pro\player_vectorChange.sqf","forward"];
-		s_player_setVectorsBack = player addaction ["Pitch Back","scripts\snap_pro\player_vectorChange.sqf","back"];
-		s_player_setVectorsLeft = player addaction ["Bank Left","scripts\snap_pro\player_vectorChange.sqf","left"];
-		s_player_setVectorsRight = player addaction ["Bank Right","scripts\snap_pro\player_vectorChange.sqf","right"];
-		s_player_setVectors1 = player addaction ["Increment by 1 degree","scripts\snap_pro\player_vectorChange.sqf","1"];
-		s_player_setVectors5 = player addaction ["Increment by 5 degrees","scripts\snap_pro\player_vectorChange.sqf","5"];
-		s_player_setVectors45 = player addaction ["Increment by 45 degrees","scripts\snap_pro\player_vectorChange.sqf","45"];
-		s_player_setVectors90 = player addaction ["Increment by 90 degrees","scripts\snap_pro\player_vectorChange.sqf","90"];
-
 	} else {
 		["Init",_object,_classname,_objectHelper] spawn snap_build;
 	};
@@ -338,10 +274,8 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 			DZE_4 = false;
 			if (helperDetach) then {
 				_dir = -45;
-				DZE_memDir = DZE_memDir - 45;
 			} else {
 				_dir = 180;
-				DZE_memDir = 180;
 			};
 		};
 		if (DZE_6) then {
@@ -349,32 +283,20 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 			DZE_6 = false;
 			if (helperDetach) then {
 				_dir = 45;
-				DZE_memDir = DZE_memDir + 45;
 			} else {
 				_dir = 0;
-				DZE_memDir = 0;
 			};
-		};
-		if(DZE_updateVec) then{
-			[_objectHelper,[DZE_memForBack,DZE_memLeftRight,DZE_memDir]] call fnc_SetPitchBankYaw;
-			DZE_updateVec = false;
 		};
 		
 		if (DZE_F and _canDo) then {	
 			if (helperDetach) then {
 			_objectHelperDir = getDir _objectHelper; 
 			_objectHelper attachTo [player];
-			DZE_memDir = DZE_memDir-(getDir player);
 			_objectHelper setDir _objectHelperDir-(getDir player);
 			helperDetach = false;
-
 			} else {
-			[_objectHelper,[DZE_memForBack,DZE_memLeftRight,DZE_memDir]] call fnc_SetPitchBankYaw;
 			_objectHelperPos = getPosATL _objectHelper;
 			detach _objectHelper;			
-
-
-
 			_objectHelper setPosATL _objectHelperPos;
 			_objectHelperDir = getDir _objectHelper;
 			_objectHelper setVelocity [0,0,0]; //fix sliding glitch
@@ -384,7 +306,6 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 		};
 
 		if(_rotate) then {
-
 			if (helperDetach) then {
 				_objectHelperDir = getDir _objectHelper;
 				_objectHelperPos = getPosATL _objectHelper;
@@ -448,8 +369,6 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 			_objectHelper attachTo [player];
 			};
 
-
-
 		};
 
 		sleep 0.5;
@@ -458,10 +377,8 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 
 		if(DZE_5) exitWith {
 			_isOk = false;
-
 			detach _object;
 			_dir = getDir _object;
-
 			_position = getPosATL _object;
 			//diag_log format["DEBUG BUILDING POS: %1", _position];
 			deleteVehicle _object;
@@ -478,16 +395,6 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 			detach _objectHelper;
 			deleteVehicle _objectHelper;
 		};
-
-
-
-
-
-
-
-
-
-
 
 		if(abs(_objHDiff) > 10) exitWith {
 			_isOk = false;
@@ -520,19 +427,6 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 		};
 	};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//No building on roads unless toggled
 	if (!DZE_BuildOnRoads) then {
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
@@ -550,8 +444,6 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 
 		_object setdir _dir;
 
-
-
 		// Get position based on object
 		_location = _position;
 
@@ -559,10 +451,7 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 			_location set [2,0];
 		};
 
-
-
 		_object setPosATL _location;
-
 
 
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
@@ -725,7 +614,6 @@ if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 				[objNull, player, rSwitchMove,""] call RE;
 				player playActionNow "stop";
 			};
-
 
 			deleteVehicle _object;
 
