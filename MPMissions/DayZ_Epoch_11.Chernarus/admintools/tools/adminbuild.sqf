@@ -71,7 +71,7 @@ SnappingEnabled = true;
 SnappedOffsetZ = 0;
 SnappingResetPos = false;
 
-if (isClass (missionConfigFile >> "SnapPoints" >> _classname)) then {
+if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {
 	s_building_snapping = player addAction ["<t color=""#0000ff"">Snap</t>", "scripts\snap_pro\snapbuild.sqf",_classname, 3, true, false, "",""];
 };
 
