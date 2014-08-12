@@ -4,7 +4,7 @@ Website: www.t27m.co.uk
 Need help?: http://www.t27m.co.uk/forum/viewforum.php?f=7
 
 Part of Admin Build by T27M
-Version: 0.1
+Version: 0.2
 */ 
 
 private ["_ct", "_objectID", "_objectUID"];

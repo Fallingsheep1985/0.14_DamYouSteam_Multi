@@ -8,14 +8,13 @@ Website: www.t27m.co.uk
 Need help?: http://www.t27m.co.uk/forum/viewforum.php?f=7
 
 Part of Admin Build by T27M
-Version: 0.1
+Version: 0.2
 */ 
 
-private["_classname", "_ghost", "_ghostBuild", "_object", "_offset", "_playerPos", "_dir", "_location", "_classnameAction", "_distance", "_classnameCancel", "_posModifier"];
+private["_classname", "_object", "_offset", "_playerPos", "_dir", "_location", "_classnameAction", "_distance", "_classnameCancel", "_posModifier"];
 
 _classname = _this select 0;
 _location = [0,0,0];
-_buildClass = _classname;
 _offset = [0,4,0];
 _playerPos = getPosATL player;
 _dir = getDir player;
@@ -49,7 +48,7 @@ if( _IsNearPlot > 0) then {
 	// Find owner
 	_ownerID = _nearestPole getVariable["CharacterID","0"];
 
-	cutText [ format["Warning: A plot pole belonging to %1:%2 exists in the area.", _ownerID, _playerName], "PLAIN"];
+	cutText [ format["Warning: A plot pole belonging to %1 exists in the area.", _ownerID], "PLAIN"];
 };
 
 _offset = getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
@@ -59,20 +58,31 @@ if((count _offset) <= 0) then {
 
 _offset set [2, (_offset select 2) + repeatposModifier];
 
-_ghost = getText (configFile >> "CfgVehicles" >> _classname >> "ghostpreview");
-if(_ghost != "") then {
-	_buildClass = _ghost;
-};
-
-_object = createVehicle [_buildClass, _location, [], 0, "CAN_COLLIDE"];
+_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 _object setDir _dir;
 _object attachTo [player, _offset];
 
-BuildInProgress = true;
-_confirm = player addAction [("<t color=""#00FF1E"">" + ("Place Object") +"</t>"), "admintools\tools\adminbuild\placement.sqf",["Confirm", _object, _classname], 6, false, true, "", "BuildInProgress;"];
-_cancel = player addAction [("<t color=""#ff0000"">" + ("Cancel Placement") +"</t>"), "admintools\tools\adminbuild\placement.sqf", ["Cancel", _object, _classname], 5, false, true, "", "BuildInProgress;"];
-_repeat = player addAction [("<t color=""#9677b1"">" + ("Repeat Build") +"</t>"), "admintools\tools\adminbuild\repeatbuild.sqf", "", 5, false, true, "", "BuildInProgress;"];
+// Build Snapping
+player allowDamage false;
+SnappingOffset = _offset;
+SnappingDir = 0;
+SnappingSpotMarkers = [];
+SnappingEnabled = true;
+SnappedOffsetZ = 0;
+SnappingResetPos = false;
 
+if (isClass (missionConfigFile >> "SnapPoints" >> _classname)) then {
+	s_building_snapping = player addAction ["<t color=""#0000ff"">Snap</t>", "scripts\snap_pro\snapbuild.sqf",_classname, 3, true, false, "",""];
+};
+
+Snapper = [_object, _classname] spawn snap_object;
+
+SnappingEnabled = true;
+
+BuildInProgress = true;
+Confirm = player addAction [("<t color=""#00FF1E"">" + ("Place Object") +"</t>"), "admintools\tools\adminbuild\placement.sqf",["Confirm", _object, _classname], 6, false, true, "", "BuildInProgress;"];
+Cancel = player addAction [("<t color=""#ff0000"">" + ("Cancel Placement") +"</t>"), "admintools\tools\adminbuild\placement.sqf", ["Cancel", _object, _classname], 5, false, true, "", "BuildInProgress;"];
+Repeat = player addAction [("<t color=""#9677b1"">" + ("Repeat Build") +"</t>"), "admintools\tools\adminbuild\repeatbuild.sqf", "", 5, false, true, "", "BuildInProgress;"];
 
 _posModifier = 0.1;
 
@@ -91,56 +101,67 @@ while {BuildInProgress} do {
 	};
 
 	switch (BuildAction) do {	
-		// Move object up 0.1
 		case "MoveUp": {
 			detach object;
+			SnappingAttachedToPlayer = false;
+			
 			_location = getPosATL _object;
 			_location set [2,((_location select 2) + _posModifier)];
+			
+			SnappingOffset set [2, ((SnappingOffset select 2) + _posModifier)];
+			
 			_object setPosATL _location;
 			_object attachTo [player];
 			
 			repeatposModifier = repeatposModifier + _posModifier;
 			
 			BuildAction = "";
+			SnappingAttachedToPlayer = true;
 		};
-				
-		// Move object down 0.1
 		case "MoveDown": {
 			detach object;
+			SnappingAttachedToPlayer = false;
+			
 			_location = getPosATL _object;
 			_location set [2,((_location select 2) - _posModifier)];
+			
+			SnappingOffset set [2, ((SnappingOffset select 2) - _posModifier)];
+			
 			_object setPosATL _location;
 			_object attachTo [player];
 			
 			repeatposModifier = repeatposModifier - _posModifier;
 			
 			BuildAction = "";
+			SnappingAttachedToPlayer = true;
 		};
-		
 		// Rotate 180
 		case "Rotate180": {
 			detach object;
+			SnappingAttachedToPlayer = false;
+			SnappingDir = 180;
 			_object setDir 180;
 			_object attachTo [player];
 			
 			BuildAction = "";
+			SnappingAttachedToPlayer = true;
 		};
-		
 		// Rotate 0
 		case "Rotate0": {
 			detach object;
+			SnappingAttachedToPlayer = false;
+			SnappingDir = 0;
 			_object setDir 0;
 			_object attachTo [player];
 			
 			BuildAction = "";
+			SnappingAttachedToPlayer = true;
 		};
-		
 		case "PlaceObject": {
 			[false, false, false ,["Confirm", _object, _classname]] execVM "admintools\tools\adminbuild\placement.sqf";
 			
 			BuildAction = "";
 		};
-		
 		case "Cancel": {
 			[false, false, false, ["Cancel", _object, _classname]] execVM "admintools\tools\adminbuild\placement.sqf";
 			
@@ -148,8 +169,3 @@ while {BuildInProgress} do {
 		};
 	};
 };
-
-waitUntil {not BuildInProgress};
-player removeAction _confirm;
-player removeAction _cancel;
-player removeAction _repeat;

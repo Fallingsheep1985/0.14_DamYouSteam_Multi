@@ -114,3 +114,4 @@
 5 setVehicleAmmo !"cargod.sqf"
 5 "God mode" !"cargod.sqf"
 5 GodMode !"cargod.sqf"
+5 setVehicleInit !"invisibilty.sqf"
