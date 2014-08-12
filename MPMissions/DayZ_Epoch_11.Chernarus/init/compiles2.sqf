@@ -43,6 +43,11 @@ if (!isDedicated) then {
 	player_build = compile preprocessFileLineNumbers "fixes\player_build.sqf";
 	snap_build = compile preprocessFileLineNumbers "scripts\snap_pro\snap_build.sqf";
 	dayz_spaceInterrupt = compile preprocessFileLineNumbers "fixes\dayz_spaceInterrupt.sqf";
+	
+	//Vector build
+	player_lockVault =			compile preprocessFileLineNumbers "fixes\player_lockVault.sqf";
+	player_unlockVault =			compile preprocessFileLineNumbers "fixes\player_unlockVault.sqf";
+	
 };
 //Infected Camps
 infectedcamps = compile preprocessFileLineNumbers "scripts\InfectedCamps\object_infectedcamps.sqf";
