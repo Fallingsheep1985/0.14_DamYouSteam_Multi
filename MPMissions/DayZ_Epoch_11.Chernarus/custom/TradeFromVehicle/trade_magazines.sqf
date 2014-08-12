@@ -1,7 +1,7 @@
 player removeAction tfv_ACTION_INDEX;
 player removeAction tfv_ACTION_INDEX_MAGS;
 tfv_IS_TRADING = true;
-if (tfv_DEBUGGING) then { diag_log "tfv - trade_Magazines.sqf - starting"; };
+if (tfv_DEBUGGING) then { diag_log "tfv - trade.sqf - starting"; };
 private ["_goStart","_tPassed","_sTime","_display","_tradeCancel","_pStartPos","_sMagCounts",
          "_trader","_traderMags","_magsActual","_price_rejetcs","_sale","_rejects","_bars",
 		 "_steps_complete","_steps","_cur_step","_badTrade","_firstStep","_preTestCargoCounts"];
@@ -47,15 +47,39 @@ _bars = _sale call tfv_fnc_convert;
 _steps_complete = false;
 _cur_step = 0;
 _badTrade = false;
-_firstStep = true;
 
 while {!_steps_complete} do {
     _display = format [tfv_TRADE_STEPS,_cur_step + 1,_steps];
 	titleText [_display,"PLAIN DOWN"];
-	player playActionNow "medic";
-	if (_firstStep) then { sleep 3; _firstStep = false; };
-	sleep 1;
-	waitUntil {(((animationState player) != "ainvpknlmstpslaywrfldnon_medic") && ((animationState player) != "ainvpknlmstpsnonwnondnon_medic_2") && ((animationState player) != "ainvpknlmstpslaywrfldnon_amovpknlmstpsnonwnondnon"))};
+	_isOk = true; // Play only one animation per step
+	while {_isOk} do {
+		player playActionNow "Medic";
+		r_interrupt = false;
+		r_doLoop = true;
+		_started = false;
+		_finished = false;
+		while {r_doLoop} do {
+			_animState = animationState player;
+			_isMedic = ["medic",_animState] call fnc_inString;
+			if (_isMedic) then {
+				_started = true;
+			};
+			if (_started && !_isMedic) then {
+				r_doLoop = false;
+				_finished = true;
+			};
+			if (r_interrupt) then {
+				r_doLoop = false;
+				_isOk = false;
+				_canceltrade = true;
+			};
+			sleep 0.1;
+		};
+		r_doLoop = false;
+		if(_finished) then {
+			_isOk = false;
+		};
+	};
 	_cur_step = _cur_step + 1;
 	if (([_vStartPos,_sMagCounts,_vehicle,_pStartPos] call tfv_fnc_checkTradeMags)) exitWith {
 	    _badTrade = true;
