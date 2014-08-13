@@ -49,13 +49,13 @@ while {true} do {
 					if (!tfv_IS_TRADING) then {    
 						if ("weapons" in (tfv_TRADERS_TYPES select _traderIdx)) then {    
 							if (tfv_BACTION != 1) then {    
-								tfv_BACTION_INDEX = player addAction ["<t color='#d0fc00'>Trade Weapons From Backpack</t>","custom\TradeFromVehicle\backpack_trade.sqf",[_trader,_backpack],400,true,true];
+								tfv_BACTION_INDEX = player addAction ["<t color='#d0fc00'>Trade Weapons From Backpack</t>","scripts\TradeFromVehicle\backpack_trade.sqf",[_trader,_backpack],400,true,true];
 								tfv_BACTION = 1;
 							};
 						};
 						if ("magazines" in (tfv_TRADERS_TYPES select _traderIdx)) then {
 							if (tfv_BACTION_MAGS != 1) then {    
-								tfv_BACTION_INDEX_MAGS = player addAction ["<t color='#d0fc00'>Trade Items From Backpack</t>","custom\TradeFromVehicle\backpack_trade_magazines.sqf",[_trader,_backpack],399,true,true];
+								tfv_BACTION_INDEX_MAGS = player addAction ["<t color='#d0fc00'>Trade Items From Backpack</t>","scripts\TradeFromVehicle\backpack_trade_magazines.sqf",[_trader,_backpack],399,true,true];
 								tfv_BACTION_MAGS = 1;
 							};
 						};

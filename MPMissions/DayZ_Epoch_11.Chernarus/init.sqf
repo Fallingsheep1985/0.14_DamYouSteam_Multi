@@ -269,7 +269,7 @@ if(ElevatorScript)then{
 	};
 };
 if(TradeFromVehicleScript)then{
-		[] execVM "custom\TradeFromVehicle\init.sqf";
+		[] execVM "scripts\TradeFromVehicle\init.sqf";
 };
 //Weapon Mods
 call compile preprocessFileLineNumbers "scripts\wmod\init.sqf";
