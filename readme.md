@@ -36,11 +36,6 @@ ADMIN TOOLS MENU
 1. open "admintools\AdminList.sqf"
 2. change 120958982 or (######) to your player ID
 
-BASE BUILDING
-1. open "init\variables2.sqf"
-2. change 120958982 or (######) to your player ID
-
-
 ////////////////////////////////////////////////////////////////
 //				KNOWN BUGS
 ////////////////////////////////////////////////////////////////
