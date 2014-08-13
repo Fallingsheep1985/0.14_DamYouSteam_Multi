@@ -1,18 +1,22 @@
 ////////////////////////////////////////////////////////////////
-//			INSTALL GUIDE - 0.13 - MULTI MADNESS
+//			INSTALL GUIDE - 0.14 DAM YOU STEAM
 ////////////////////////////////////////////////////////////////
 
-YOU MUST HAVE A EXISTING EPOCH 1.0.5.1 SERVER WORKING BEFORE USING THIS!!
+YOU MUST HAVE 
 
-REPLACE YOUR SERVER PBO WITH THE ONE YOU JUST RENEAMED
+A EXISTING EPOCH 1.0.5.1 SERVER WORKING 
+STEAM BETA 125548
 
-REPLACE YOUR MPMISSON PBO WITH THE ONE YOU JUST RENEAMED(IF YOU DONT USE A MPMISSION PBO REPLACE THE MISSON FOLDER)
+BEFORE USING THIS!!
 
-REPLACE YOUR HIVEEXT.DLL WITH THE ONE YOU JUST RENAMED
 
-RUN THE NEW.SQL ON YOUR DB (IT ADDS GEMS,HEMP AND RADIO TO GENERAL STORES)
+REPLACE YOUR SERVER PBO WITH THE ONE INCLUDED
 
-RUN THE MULTICHARACTER.SQL ON YOUR DB (ADDS SLOTS TO CHARTER TABLE)
+REPLACE YOUR MPMISSON PBO WITH THE ONE INCLUDED(IF YOU DONT USE A MPMISSION PBO REPLACE THE MISSON FOLDER)
+
+REPLACE YOUR HIVEEXT.DLL WITH THE ONE INCLUDED
+
+RUN THE MULTICHARACTER.SQL ON YOUR DB (ADDS SLOTS TO CHARACTER TABLE)
 
 
 THATS IT!
@@ -41,11 +45,8 @@ BASE BUILDING
 //				KNOWN BUGS
 ////////////////////////////////////////////////////////////////
 1. there is some delay when going from one trader to the next trader.
-2. Sometimes when on fresh server start player gets stuck at loading screen and can hear game but not see it. (close client and reopn to fix)
+2. Sometimes when on fresh server start player gets BE kick for setpos just rejoin.
 3. Ground fog / Wind Dust can cause low FPS and server lag
-
-
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -65,8 +66,8 @@ false = off
 //			CHANGE WATERMARK	
 ////////////////////////////////////////////////////////////////
 1.	open "init.sqf"
-2.	find server_name = "Sheeps Epoch Repack - 0.12";
-3.	change Sheeps Epoch Repack - 0.12 to your liking
+2.	find server_name = "Sheeps Epoch Repack";
+3.	change Sheeps Epoch Repack to your liking
 
 
 ////////////////////////////////////////////////////////////////
@@ -120,7 +121,7 @@ The repack uses DZMS and WAI see the DZMS or WAI forum for help adjusting your m
 ////////////////////////////////////////////////////////////////
 //			ESS DONOR CLASS
 ////////////////////////////////////////////////////////////////
-You need to edit init\variables.sqf
+You need to UNPBO the server and edit dayz_server\init\server_functions.sqf
 
 donorClassLvl1 = ["0","0","0"];
 donorClassLvl2 = ["0","0","0"];
@@ -132,7 +133,7 @@ change 0 to the donors UID to give them access
 ////////////////////////////////////////////////////////////////
 //			ESS DONOR LOADOUT
 ////////////////////////////////////////////////////////////////
-You need to edit init\variables.sqf
+You need to UNPBO the server and edit dayz_server\init\server_functions.sqf
 
 donorListClass = [
 	"120958982",
@@ -213,6 +214,7 @@ all other colors are normal loading stuff just split up to make it easier to see
 	Sgt M Everlast
 	MattL
 	AlexLawson
+	Carl
 	Each addon/script creator
 	The entire EPOCH team
 	The entire ARMA2 team
@@ -223,7 +225,7 @@ all other colors are normal loading stuff just split up to make it easier to see
 ////////////////////////////////////////////////////////////////
 //			SCRIPTS/ADDONS IN REPACK
 ////////////////////////////////////////////////////////////////
-Base Building 1.3
+Advanced Alchemy Building
 Admin Tools
 Debug Monitor 
 Take clothes 
@@ -231,8 +233,8 @@ Tent healing
 Zombie Bait
 Zombie Bomb
 Suicide
-DZAI
-DZMS
+DZAI (dayz AI)
+DZMS (dayz mission system)
 Burn Tents
 Drink Water
 Fast Roping
@@ -252,7 +254,6 @@ House Lights
 Tower Lights
 Animated AN2 crashes
 AN2 carepackage drops
-Air Raid
 Welcome Credits
 Custom loading Screen
 Custom Loot
@@ -268,16 +269,23 @@ Hero perks
 Harvest Hemp (buy/sell at black markets - right click knife near hemp field)
 Ixxos Awesome custom buildings
 Admin Tool  RPT Tracking ( EG: [ADMIN TOOLS] - SPAWN cinder_wall_kit - Admin Name: DUDE UID: 111111 Position: 1200.0, 400.4") 
-WAI
+WAI (Wicked AI 0.73)
 Deploy Bike + Upgrade to Motorbike then Mozzie (right click toolbox)
 Added radio to rare loot (military loot and police zombie loot, very low chance) and black market trader for 100oz briefcase
 Custom Death Screen
-DZGM
-VASP
+DZGM (dayz group management)
+VASP (Vehicle and skin preview)
 Bank Robbery
 Walk Amongst Dead
 Lots more custom buildings
 call carepackage (right click 100oz briefcase)
 call carepackage to map location (right click 100oz briefcase)
 Journal
-Plotpole + Buidlables tied to UID
+Elevator
+Adjustable fog/view distance
+Fast Trading
+Trade from Vehicles
+Trade from backpacks
+Vector build
+Admin build
+JAEM ( just another evac mod)
