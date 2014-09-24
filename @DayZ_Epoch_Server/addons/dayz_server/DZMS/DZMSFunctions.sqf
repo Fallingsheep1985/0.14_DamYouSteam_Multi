@@ -136,7 +136,7 @@ DZMSSetupVehicle = {
 	if (DZMSEpoch) then {
 		PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor, _object];
 	} else {
-		pvdze_serverobjectmonitor set [count pvdze_serverobjectmonitor, _object];
+		dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _object];
 	};
 	
 	waitUntil {(!isNull _object)};
@@ -177,7 +177,7 @@ DZMSProtectObj = {
 	if (DZMSEpoch) then {
 		PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor, _object];
 	} else {
-		pvdze_serverobjectmonitor set [count pvdze_serverobjectmonitor, _object];
+		dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _object];
 	};
 	
     if (!((typeOf _object) in ["USVehicleBox","USLaunchersBox","AmmoBoxSmall_556","AmmoBoxSmall_762","MedBox0","USBasicWeaponsBox","USBasicAmmunitionBox","RULaunchersBox"]) || DZMSSceneryDespawnLoot) then {

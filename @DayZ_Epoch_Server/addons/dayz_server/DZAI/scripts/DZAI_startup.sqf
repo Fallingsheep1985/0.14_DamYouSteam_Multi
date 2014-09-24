@@ -64,7 +64,7 @@ if (DZAI_useHealthSystem) then {
 
 //Find DayZ server object monitor (to prevent AI vehicles from being destroyed due to hacker check)
 DZAI_serverObjectMonitor = call {
-	if (!isNil "pvdze_serverobjectmonitor") exitWith {"pvdze_serverobjectmonitor"};
+	if (!isNil "dayz_serverObjectMonitor") exitWith {"dayz_serverObjectMonitor"};
 	if (!isNil "PVDZE_serverObjectMonitor") exitWith {"PVDZE_serverObjectMonitor"};
 	"DZAI_serverObjectMonitorArray"
 };
